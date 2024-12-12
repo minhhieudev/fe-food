@@ -1,0 +1,46 @@
+.bg-default-100 {
+  background-color: transparent !important;
+}
+.shadow-sm{
+  --tw-shadow: 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .bio-link-container {
+    border-radius: 0px;
+    height: 500px;
+  }
+
+  .bio-link-container h1 {
+    margin-top: 20px;
+  }
+
+  .bio-link-container-div-child-one {
+    margin-top: 24px;
+  }
+
+  .bio-link-container-button-child-one {
+    margin-top: 24px;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .bio-link-container {
+    border-radius: 0px;
+    height: 600px;
+  }
+
+  .bio-link-container h1 {
+    margin-top: 20px;
+  }
+
+  .bio-link-container-div-child-one {
+    margin-top: 24px;
+  }
+
+  .bio-link-container-button-child-one {
+    margin-top: 24px;
+  }
+
+}

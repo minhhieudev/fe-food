@@ -1,0 +1,14 @@
+.input-number {
+  outline: none;
+}
+
+.pf input[type="submit"] {
+  border-radius: 4px;
+  background: var(--Primary-500, #ff8900);
+  display: flex;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}

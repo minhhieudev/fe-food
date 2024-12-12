@@ -1,0 +1,78 @@
+@media screen and (max-width: 768px) {
+  .keyword-hot-topic-fl {
+    color: var(--White, #fff);
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 142.857% */
+  }
+  .keyword-hot-topic-fl-content {
+    overflow: auto;
+    display: flex;
+  }
+  .keyword-my-topic-left {
+  }
+  .keyword-hot-one-topic-container {
+    margin-bottom: 24px;
+    display: flex;
+    padding: 20px;
+    margin-right: 20px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 14px;
+    align-self: stretch;
+    border-radius: 12px;
+    border: 1px solid var(--Gray-200, #f2f4f5);
+    background: linear-gradient(90deg, #ff8900 63.46%, #fff 63.47%);
+  }
+  .keyword-my-topic-left-title-container {
+    display: flex;
+    align-items: center;
+    padding: 8px 0px;
+    justify-content: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 4px;
+    background: var(--Primary-400, #ffaa47);
+    margin-block: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .keyword-hot-topic-fl {
+    color: var(--White, #fff);
+    margin-right: 10px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+  }
+  .keyword-hot-topic-fl-content {
+    overflow: auto;
+    max-height: 800px;
+  }
+  .keyword-my-topic-left {
+    padding-inline: 48px;
+  }
+  .keyword-hot-one-topic-container {
+    margin-bottom: 24px;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 14px;
+    align-self: stretch;
+    border-radius: 12px;
+    border: 1px solid var(--Gray-200, #f2f4f5);
+    background: linear-gradient(90deg, #ff8900 63.46%, #fff 63.47%);
+  }
+  .keyword-my-topic-left-title-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .keyword-my-topic-right {
+  }
+}

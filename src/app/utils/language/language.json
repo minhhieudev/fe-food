@@ -1,0 +1,678 @@
+{
+  "login.name": {
+    "vi": "Tên",
+    "en": "Name"
+  },
+  "order.title": {
+    "vi": "Đặt hàng",
+    "en": "Order"
+  },
+  "order.searchService": {
+    "vi": "Tìm kiếm dịch vụ",
+    "en": "Search service"
+  },
+  "order.platform": {
+    "vi": "Nền tảng",
+    "en": "Platform"
+  },
+  "order.classify": {
+    "vi": "Phân loại",
+    "en": " Classify"
+  },
+  "order.enter": {
+    "vi": "Nhập",
+    "en": "Enter"
+  },
+  "order.notBlank": {
+    "vi": "không được bỏ trống",
+    "en": "can not be blank"
+  },
+  "order.service": {
+    "vi": "Dịch vụ",
+    "en": "Service"
+  },
+  "order.quantity": {
+    "vi": "Số lượng",
+    "en": "quantity"
+  },
+  "order.inputQuantity": {
+    "vi": "Nhập số lượng",
+    "en": "Input quantity"
+  },
+  "order.minimum": {
+    "vi": "Tối thiểu:",
+    "en": "Minimum:"
+  },
+  "order.maximum": {
+    "vi": "Tối đa:",
+    "en": "Maximum:"
+  },
+  "order.canNotBeBlank": {
+    "vi": "Vui lòng không bỏ trống",
+    "en": "Can not be blank"
+  },
+  "order.larger0": {
+    "vi": "Giá trị phải lớn hơn 0",
+    "en": "Value must be larger than 0"
+  },
+  "order.timeIntervalbetweeneachrun": {
+    "vi": "Thời gian cách nhau mỗi lần chạy",
+    "en": "Time interval between each run"
+  },
+  "order.enterTime": {
+    "vi": "Nhập thời gian",
+    "en": "Input time"
+  },
+  "order.buttonOrder": {
+    "vi": "Đặt hàng",
+    "en": "Order"
+  },
+  "recharge.title": {
+    "vi": "Nạp tiền",
+    "en": "Recharge"
+  },
+  "recharge.totalloaded": {
+    "vi": "Tổng đã nạp",
+    "en": "Totalloaded"
+  },
+  "recharge.currentBalance": {
+    "vi": "Số dư hiện tại",
+    "en": "Current balance"
+  },
+  "recharge.statusPaySuccess": {
+    "vi": "Thành công",
+    "en": "Success"
+  },
+  "recharge.statusPayFail": {
+    "vi": "Thất bại",
+    "en": "Fail"
+  },
+  "recharge.Order": {
+    "vi": "Đặt hàng",
+    "en": "Order"
+  },
+  "recharge.Depoint": {
+    "vi": "Nạp tiền",
+    "en": "Depoint"
+  },
+  "recharge.recharge": {
+    "vi": "Nạp tiền",
+    "en": "Recharge"
+  },
+  "recharge.history": {
+    "vi": "Lịch sử",
+    "en": "History"
+  },
+  "recharge.choosePaymentMethods": {
+    "vi": "Chọn phương thức nạp",
+    "en": "Choose payment methods"
+  },
+  "recharge.depositViaPaypal": {
+    "vi": "Nạp qua PayPal",
+    "en": "Deposit via Paypal"
+  },
+  "recharge.close": {
+    "vi": "Đóng",
+    "en": "Close"
+  },
+  "recharge.requestAmount": {
+    "vi": "Yêu cầu nạp",
+    "en": "Request amount"
+  },
+  "recharge.depositViabankcard": {
+    "vi": "Nạp qua thẻ ngân hàng",
+    "en": "Deposit via bank card"
+  },
+  "recharge.enterthemount": {
+    "vi": "Nhập số tiền",
+    "en": "Enter the mount"
+  },
+  "recharge.buttonrecharge": {
+    "vi": "Nạp ngay",
+    "en": "Recharge"
+  },
+  "recharge.loadingHistory": {
+    "vi": "Lịch sử nạp",
+    "en": "Loading history"
+  },
+  "recharge.filterByTime": {
+    "vi": "Lọc theo thời gian",
+    "en": "Filter by time"
+  },
+  "recharge.method": {
+    "vi": "Phương thức",
+    "en": "Method"
+  },
+  "recharge.totalAmountRecharged": {
+    "vi": "Tổng Nạp",
+    "en": "Total amount recharged"
+  },
+  "recharge.status": {
+    "vi": "Trạng thái",
+    "en": "Status"
+  },
+  "recharge.balanceAfterDeposit": {
+    "vi": "Số dư sau khi nạp",
+    "en": "Balance after deposit"
+  },
+  "recharge.time": {
+    "vi": "Thời gian",
+    "en": "Time"
+  },
+  "recharge.outOf": {
+    "vi": "Trong tổng",
+    "en": "Out of"
+  },
+  "recharge.today": {
+    "vi": "Hôm nay",
+    "en": "Today"
+  },
+  "recharge.yesterday": {
+    "vi": "Hôm qua",
+    "en": "Yesterday"
+  },
+  "recharge.last30Days": {
+    "vi": "30 ngày gần đây",
+    "en": "Last 30 days"
+  },
+  "recharge.thisMonth": {
+    "vi": "Tháng này",
+    "en": "This month"
+  },
+  "recharge.lastMonth": {
+    "vi": "Tháng trước",
+    "en": "Last month"
+  },
+  "recharge.select": {
+    "vi": "Lựa chọn",
+    "en": "Select"
+  },
+  "recharge.noteDepositViaBankCard": {
+    "vi": "Quý khách có thể chuyển khoản từ các ngân hàng khác qua STK Viettinbank của MST ở bên cạnh. Lưu ý ghi chính xác nội dung chuyển tiền bên dưới. Không bật chế độ dịch tiếng việt khi copy nội dung chuyển. Tì giá 1$ = 25000VND",
+    "en": "You can transfer money from other banks via MST's Viettinbank on the side. Please write downn the exact transfer content below. Do not turn on Vietnamese translation mode when copying content.Exchange rate 1$ = 25000VND"
+  },
+  "recharge.textfix": {
+    "vi": "Hệ thống tự động cập nhật trong vài giây. Nếu quá 5 phút không được cập nhật vui lòng liên hệ ADMIN",
+    "en": "The system automatically updates in second. If it has not been updated for more than 5 minutes, please contact ADMIN."
+  },
+  "recharge.accountNumber": {
+    "vi": "Số tài khoản",
+    "en": "Account number"
+  },
+  "recharge.content": {
+    "vi": "Nội dung",
+    "en": "Content"
+  },
+  "recharge.error-input-number-many": {
+    "vi": "Vui lòng nhập số tiền tối thiểu là 10.000, Xin cảm ơn",
+    "en": "Please enter an amount greater than 0, Thank you"
+  },
+  "recharge.success-input-number-many": {
+    "vi": "Tạo mã QR thành công, Xin cảm ơn quý khách đã tin dùng sản phẩn của chúng tôi ",
+    "en": "Successfully created QR code. Thank you for trusting our product"
+  },
+  "recharge.content-one": {
+    "vi": "Quý khách có thể chuyển khoản từ các ngân hàng khác qua STK Vietinbank của MST ở bên dưới",
+    "en": "You can transfer money from other banks via MST's Vietinbank STK below"
+  },
+  "recharge.content-two": {
+    "vi": "Lưu ý ghi chính xác nội dung chuyển tiền bên dưới.",
+    "en": "Please note the exact transfer content below."
+  },
+  "recharge.content-three": {
+    "vi": "Không bật chế độ dịch tiếng việt khi copy nội dung chuyển",
+    "en": "Do not turn on Vietnamese translation mode when copying transferred content"
+  },
+  "recharge.content-four": {
+    "vi": "Tỷ giá 1$ =",
+    "en": "Exchange rate 1$ ="
+  },
+  "recharge.account-name": {
+    "vi": "Tên chủ tài khoản:",
+    "en": "Account name:"
+  },
+  "recharge.bank": {
+    "vi": "Ngân hàng:",
+    "en": "Bank:"
+  },
+  "recharge.account-number": {
+    "vi": "Số tài khoản:",
+    "en": "Account number:"
+  },
+  "recharge.content-bank": {
+    "vi": "Nội dung:",
+    "en": "Content:"
+  },
+  "recharge.label-money-number": {
+    "vi": "Nhập số tiền",
+    "en": "Enter the amount"
+  },
+  "recharge.input-money-number": {
+    "vi": "Vui lòng nhập số tiền ...",
+    "en": "Please enter the amount ...."
+  },
+  "recharge.generate-qr": {
+    "vi": "Tạo mã QR",
+    "en": "Generate QR codes"
+  },
+  "recharge.warning": {
+    "vi": "*  Hệ thống tự động cập nhật trong vài giây. Nếu quá 5 phút không được cập nhật, vui lòng liên hệ ADMIN.",
+    "en": "* The system automatically updates in seconds. If it has not been updated for more than 5 minutes, please contact ADMIN."
+  },
+  "perchasedServices.title": {
+    "vi": "Dịch vụ đã mua",
+    "en": " Perchased services"
+  },
+  "perchasedServices.searchServices": {
+    "vi": "Tìm kiếm dịch vụ đã mua theo ID, tên nền tảng hoặc tên dịch vụ",
+    "en": "Search perchased services by ID, platform's name or service's name"
+  },
+  "perchasedServices.platform": {
+    "vi": "Nền tảng",
+    "en": "Platform"
+  },
+  "perchasedServices.classify": {
+    "vi": "Phân loại",
+    "en": "Classify"
+  },
+  "perchasedServices.servicesName": {
+    "vi": "Tên dịch vụ",
+    "en": "Services name"
+  },
+  "perchasedServices.Link": {
+    "vi": "Liên kết",
+    "en": "Link"
+  },
+  "perchasedServices.quantity": {
+    "vi": "Số lượng",
+    "en": "Quantity"
+  },
+  "perchasedServices.time": {
+    "vi": "Thời gian",
+    "en": "Time"
+  },
+  "perchasedServices.TotalAmount": {
+    "vi": "Tổng tiền",
+    "en": "Total amount"
+  },
+  "perchasedServices.PurchaseInformation": {
+    "vi": "Thông tin mua",
+    "en": "Purchase information"
+  },
+  "perchasedServices.CodeOrders": {
+    "vi": "Mã đơn hàng",
+    "en": "Code orders"
+  },
+  "perchasedServices.operation": {
+    "vi": "Thao tác",
+    "en": "Operation"
+  },
+  "perchasedServices.DateOfPurchase": {
+    "vi": "Ngày mua",
+    "en": "Date Of Purchase"
+  },
+  "configuration.title": {
+    "vi": "Cấu hình",
+    "en": "configuration"
+  },
+  "configuration.security": {
+    "vi": "Bảo mật",
+    "en": "security"
+  },
+  "configuration.oldPassword": {
+    "vi": "Mật khẩu cũ",
+    "en": "Old Password"
+  },
+  "configuration.newPassword": {
+    "vi": "Mật khẩu mới",
+    "en": "New Password"
+  },
+  "configuration.enterPassword": {
+    "vi": "Nhập lại mật khẩu",
+    "en": "Enter the password"
+  },
+  "configuration.buttonTurnOn2StepSecurity": {
+    "vi": "Bật bảo mật 2 bước",
+    "en": "Turn on 2 step security"
+  },
+  "configuration.changePassword": {
+    "vi": "Thay đổi mật khẩu",
+    "en": "Change password"
+  },
+  "statistical.title": {
+    "vi": "Thống kê",
+    "en": "Statistical"
+  },
+  "statistical.statusOfPerchasedServices": {
+    "vi": "Tình trạng dịch vụ đã mua",
+    "en": "Status of perchased services"
+  },
+  "statistical.all": {
+    "vi": "Tất cả",
+    "en": "All"
+  },
+  "statistical.running": {
+    "vi": "Đang chạy",
+    "en": "Running"
+  },
+  "statistical.completed": {
+    "vi": "Hoàn tất",
+    "en": "Completed"
+  },
+  "statistical.cancelled": {
+    "vi": "Đã hủy",
+    "en": "Cancelled"
+  },
+  "statistical.servicescode": {
+    "vi": "Mã dịch vụ",
+    "en": "Services code"
+  },
+  "statistical.status": {
+    "vi": "Trạng thái",
+    "en": "Status"
+  },
+  "statistical.dateOfPurchase": {
+    "vi": "Ngày mua",
+    "en": "Date of Purchase"
+  },
+  "statistical.totalPayment": {
+    "vi": "Tổng thanh toán",
+    "en": "Total payment"
+  },
+  "statistical.seeDetail": {
+    "vi": "Xem chi tiết",
+    "en": "See detail"
+  },
+  "statistical.hotServices": {
+    "vi": "Các dịch vụ hot",
+    "en": "Hot Services"
+  },
+  "menu.statistical": {
+    "vi": "Thống kê",
+    "en": "Statistical"
+  },
+  "menu.order": {
+    "vi": "Đặt hàng",
+    "en": "Order"
+  },
+  "menu.bought": {
+    "vi": "Dịch vụ đã mua",
+    "en": "Bought"
+  },
+  "menu.bought.delete": {
+    "vi": "Xóa filter",
+    "en": "Delete filter"
+  },
+  "menu.deposit": {
+    "vi": "Nạp tiền",
+    "en": "Deposit"
+  },
+  "menu.support": {
+    "vi": "Hỗ trợ",
+    "en": "Support"
+  },
+  "menu.config": {
+    "vi": "Cấu hình",
+    "en": "Config"
+  },
+  "menu.api": {
+    "vi": "API",
+    "en": "API"
+  },
+  "menu.orderFood": {
+    "vi": "Đặt món",
+    "en": "OrderFood"
+  },
+  "payment.method": {
+    "vi": "PHƯƠNG THỨC",
+    "en": "METHOD"
+  },
+  "payment.totalRecharge": {
+    "vi": "TỔNG NẠP",
+    "en": "TOTAL RECHARGE"
+  },
+  "payment.increase": {
+    "vi": "TẶNG THÊM (%)",
+    "en": "MORE BONUS (%)"
+  },
+  "payment.balance": {
+    "vi": "SỐ DƯ SAU KHI NẠP",
+    "en": "BALANCE AFTER DEPOSIT"
+  },
+  "payment.status": {
+    "vi": "Trạng thái",
+    "en": "Status"
+  },
+  "payment.time": {
+    "vi": "THỜI GIAN",
+    "en": "TIME"
+  },
+  "table.empty": {
+    "vi": "Danh sách trống",
+    "en": "No data"
+  },
+  "table.of": {
+    "vi": "trong tổng",
+    "en": "of"
+  },
+  "general.search": {
+    "vi": "Tìm kiếm",
+    "en": "Search"
+  },
+  "general.filter": {
+    "vi": "Bộ lọc",
+    "en": "Filter"
+  },
+  "currency.select": {
+    "vi": "Chọn tiền tệ",
+    "en": "Your currency"
+  },
+  "currency.find": {
+    "vi": "Tìm tiền tệ",
+    "en": "Find currency"
+  },
+  "bought.input-service-name": {
+    "vi": "Nhập Tên dịch vụ",
+    "en": "Enter the Service Name"
+  },
+  "bought.select-status": {
+    "vi": "Chọn trạng thái",
+    "en": "Select status"
+  },
+  "bought.choose-platform": {
+    "vi": "Chọn nền tảng",
+    "en": "Choose platform"
+  },
+  "bought.purchase-date": {
+    "vi": "Chọn ngày mua",
+    "en": "Select purchase date"
+  },
+  "bought.running": {
+    "vi": "Đang chạy",
+    "en": "Running"
+  },
+  "bought.completed": {
+    "vi": "Hoàn thành",
+    "en": "Completed"
+  },
+  "bought.cancelled": {
+    "vi": "Đã hủy",
+    "en": "Cancelled"
+  },
+  "login.home-page": {
+    "vi": "Trang chủ",
+    "en": "Home page"
+  },
+  "login.product": {
+    "vi": "Sản phẩm",
+    "en": "Product"
+  },
+  "login.cooperate": {
+    "vi": "Hợp tác",
+    "en": "Cooperate"
+  },
+  "login.contact": {
+    "vi": "Liên hệ",
+    "en": "Contact"
+  },
+  "login.about-us": {
+    "vi": "Về chúng tôi",
+    "en": "About us"
+  },
+  "login.sign-up": {
+    "vi": "Đăng ký",
+    "en": "Sign up"
+  },
+  "login.welcome": {
+    "vi": "Chào mừng đến với chúng tôi",
+    "en": "Welcome to our"
+  },
+  "login.social-media": {
+    "vi": "công cụ truyền thông xã hội",
+    "en": "social media tool"
+  },
+  "login.service": {
+    "vi": "dịch vụ, nơi bạn có thể",
+    "en": "service, where you can"
+  },
+  "login.create-unique": {
+    "vi": "tạo ra sự độc đáo",
+    "en": "create unique"
+  },
+  "login.social-networking": {
+    "vi": "và trải nghiệm mạng xã hội sáng tạo.",
+    "en": "and creative social networking experiences."
+  },
+  "login.log-in": {
+    "vi": "Đăng nhập",
+    "en": "Log in"
+  },
+  "login.remember-log-in": {
+    "vi": "Nhớ đăng nhập",
+    "en": "Remember to log in"
+  },
+  "login.forgot-password": {
+    "vi": "Quên mật khẩu",
+    "en": "Forgot password"
+  },
+  "login.not-account": {
+    "vi": "Bạn chưa có tài khoản?",
+    "en": "Do not have an account?"
+  },
+  "login.or": {
+    "vi": "Hoặc",
+    "en": "OR"
+  },
+  "login.input-email-registration": {
+    "vi": "Nhập email đăng ký",
+    "en": "Enter registration email"
+  },
+  "login.input-email": {
+    "vi": "Nhập email",
+    "en": "Enter email"
+  },
+  "login.input-otp": {
+    "vi": "Nhập otp",
+    "en": "Enter otp"
+  },
+  "login.input-new-password": {
+    "vi": "Nhập mật khẩu mới",
+    "en": "Enter new password"
+  },
+  "login.send-email": {
+    "vi": "Gửi thư",
+    "en": "Send mail"
+  },
+  "login.send-otp": {
+    "vi": "Gửi otp",
+    "en": "Send otp"
+  },
+  "login.updata-password": {
+    "vi": "Cập nhật mật khẩu",
+    "en": "Update passord"
+  },
+  "login.enter-email": {
+    "vi": "Email",
+    "en": " Email"
+  },
+  "login.input-password": {
+    "vi": "Mật khẩu",
+    "en": "Password"
+  },
+  "login.already-account": {
+    "vi": "Bạn đã có tài khoản?",
+    "en": "Do you already have an account?"
+  },
+  "login.introduce-cty": {
+    "vi": "Khám phá dịch vụ công cụ truyền thông xã hội của chúng tôi để có trải nghiệm kết nối mạng độc đáo.",
+    "en": "Discover our social  media tool service for unique networking experiences."
+  },
+  "login.discover-our": {
+    "vi": "Khám phá dịch vụ công cụ",
+    "en": "Discover our social"
+  },
+  "login.media-tool": {
+    "vi": "truyền thông xã hội",
+    "en": "media tool"
+  },
+  "login.service-for": {
+    "vi": "của chúng tôi để có trải nghiệm kết nối mạng độc đáo.",
+    "en": "service for unique networking experiences."
+  },
+  "login.input-account": {
+    "vi": "Tài khoản",
+    "en": "Account"
+  },
+  "login.input-placeholder-account": {
+    "vi": "Nhập tài khoản",
+    "en": "Enter account"
+  },
+  "login.input-placeholder-password": {
+    "vi": "Nhập mật khẩu",
+    "en": "Enter password"
+  },
+  "login.enter-password": {
+    "vi": "Mật khẩu",
+    "en": "Password"
+  },
+  "login.for-example": {
+    "vi": "ví dụ:",
+    "en": "For example:"
+  },
+  "login.email-vacant": {
+    "vi": "Email không được bỏ trống",
+    "en": "Email is not vacant"
+  },
+  "login.password-vacant": {
+    "vi": "Mật khẩu không được bỏ trống",
+    "en": "Password can not be blank"
+  },
+  "login.password-requires": {
+    "vi": "Mật khẩu yêu cầu trên 6 ký tự và không quá 32 ký tự",
+    "en": "Password requires at least 6 characters and no more than 32 characters"
+  },
+  "login.error-password": {
+    "vi": "Mật khẩu không được để trống thông tin, Vui lòng thử lại",
+    "en": "Password cannot be blank. Please try again"
+  },
+  "login.error-email": {
+    "vi": "Email không được để trống thông tin hoặc không đúng định dạng, Vui lòng thử lại",
+    "en": "Email cannot be blank or incorrectly formatted. Please try again"
+  },
+  "login.error-otp": {
+    "vi": "Thông tin Otp không được để trống và có tối thiểu, tối đa 6 ký tự. Vui lòng thử lại",
+    "en": "Otp information cannot be blank and has a minimum or maximum of 6 characters. Please try again"
+  },
+  "login.error-account": {
+    "vi": "Tài khoản không được để trống thông tin, Vui lòng thử lại.",
+    "en": "Account information cannot be blank. Please try again"
+  },
+  "recharge.raise-more-money": {
+    "vi": "Tăng thêm tiền khi nạp từ",
+    "en": "Increase money when loading words"
+  },
+  "register": {
+    "vi": "Đăng ký",
+    "en": "Register"
+  }
+}

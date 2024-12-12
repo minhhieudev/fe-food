@@ -1,0 +1,18 @@
+.background-img {
+  background-image: url("../asset/images/login-background.png");
+}
+
+.card-login-background-img {
+  background-image: url("../asset/images/card-login-background-img.png");
+}
+
+.aboutUs-img {
+  background-image: url("../asset/images/aboutUs-img.png");
+}
+ #description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+ }

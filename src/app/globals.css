@@ -1,0 +1,420 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  margin: 0px;
+  padding: 0px;
+}
+@layer utilities {
+  .bgCustom1 {
+    background-image: url("../app/asset/images/bgTopics.png");
+    background-size: cover;
+  }
+}
+@font-face {
+  font-family: "icielsoupofjustice";
+  src: url("icielsoupofjustice.otf");
+}
+@layer utilities {
+  .primary-button {
+    @apply bg-primaryColor text-white font-bold text-base rounded py-2 px-6;
+  }
+
+  .section-content {
+    @apply flex flex-col rounded-xl bg-white px-6 py-4;
+  }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:vertical {
+  background: #ffbd70;
+  border-radius: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb:horizontal {
+  background: #ffbd70;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 30rem;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+/*
+  Người viết: Đinh văn Thành
+  Ngày viết: 27-05-2024
+  Chức năng: responsive cho tỷ lệ các màn hình
+*/
+@media (min-width: 576px) {
+  .content-title-login {
+    margin-top: 5rem;
+  }
+
+  .create-qr-font-size {
+    font-size: 13px;
+    width: 7rem;
+  }
+
+  .create-qr-font-size-en {
+    font-size: 13px;
+    width: 11rem;
+  }
+
+  .describe-bank {
+    margin-top: 8rem;
+  }
+  .text-topic-label button {
+    font-size: 12px;
+    min-width: 150px !important;
+  }
+  .text-topic-label{
+    overflow: auto;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .create-qr-font-size {
+    font-size: 14px;
+    width: 7rem;
+  }
+
+  .create-qr-font-size-en {
+    font-size: 13px;
+    width: 10rem;
+  }
+  .responsive-video {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .responsive-video-iframe {
+    width: 460px;
+    height: 200px;
+  }
+  
+  .keyword-modal-report-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding-right: 24px;
+  }
+  
+  .relate-video {
+    height: 250px;
+  }
+  .font-size-Follow {
+    font-size: 9px;
+  }
+  .text-topic{
+    margin-top: 14px;
+    display: grid;
+    justify-items: center;
+  }
+  .text-topic-label button {
+    font-size: 12px;
+    min-width: 150px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .logo-icon {
+    display: none;
+  }
+
+  .create-qr-font-size {
+    font-size: 13px;
+    width: 7rem;
+  }
+
+  .create-qr-font-size-en {
+    font-size: 13px;
+    width: 10rem;
+  }
+  .font-size-Follow {
+    font-size: 12px;
+  }
+  .text-topic {
+    display: grid;
+    justify-items: start;
+  }
+  .text-topic-label button {
+    font-size: 12px;
+    min-width: 150px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .create-qr-font-size {
+    font-size: 13px;
+    width: 7rem;
+  }
+  .create-qr-font-size-en {
+    font-size: 13px;
+    width: 12rem;
+  }
+  .describe-bank {
+    margin-top: 7rem;
+  }
+
+  .menu-column {
+    width: 13rem;
+  }
+  .responsive-video {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .responsive-video-iframe {
+    width: 263px;
+    height: 130px;
+  }
+  
+  .keyword-modal-report-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding-right: 24px;
+  }
+  
+  .relate-video {
+    height: 300px;
+  }
+  .font-size-Follow{
+    font-size: 12px;
+  }
+  .text-topic {
+    display: grid;
+    justify-items: start;
+  }
+  .text-topic-label button{
+    font-size: 12px;
+    line-height: 16px;
+    padding: 6px 10px;
+    gap: 4px
+  }
+}
+
+@media (min-width: 1200px) {
+  .create-qr-font-size {
+    font-size: 13px;
+    width: 7rem;
+  }
+
+  .create-qr-font-size-en {
+    font-size: 13px;
+    width: 11rem;
+  }
+  .describe-bank {
+    margin-top: 9rem;
+  }
+
+  .menu-column {
+    width: 13rem;
+  }
+  .relate-video {
+    height: 480px;
+  }
+  
+  .keyword-modal-report-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .font-size-Follow {
+    font-size: 16px;
+  }
+  .text-topic-label button {
+    font-size: 12px;
+    min-width: 78px !important;
+    line-height: 16px;
+    padding: 6px 10px;
+    gap: 4px
+  }
+}
+
+@media (min-width: 1400px) {
+  .create-qr-font-size {
+    font-size: 13px;
+    width: 7rem;
+  }
+
+  .create-qr-font-size-en {
+    font-size: 13px;
+    width: 10rem;
+  }
+  .describe-bank {
+    margin-top: 10rem;
+  }
+
+  .menu-column {
+    width: 280px;
+  }
+  .icon-keyword-hot{
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .create-qr-font-size {
+    font-size: 14px;
+    width: 7rem;
+  }
+  .create-qr-font-size-en {
+    font-size: 14px;
+    width: 10rem;
+  }
+  .text-topic {
+    margin-top: 14px;
+    display: grid;
+    justify-items: center;
+  }
+  .text-topic-label button {
+    font-size: 12px;
+    min-width: 150px !important;
+  }
+  .text-topic-label {
+    overflow: auto;
+  }
+  .text-media-see-more {
+    display: grid;
+    justify-items: center;
+  }
+  .text-media-see-more div {
+    margin-top: 24px;
+  }
+  .icon-keyword-hot {
+    width: 16px;
+    height: 16px;
+  }
+  .config-under {
+    flex-direction: column;
+    border: none;
+  }
+  .config-under div:nth-child(1) {
+    padding: 0px;
+  }
+  .config-under div:nth-child(2) {
+    padding: 0px;
+  }
+  .config{
+    border: none
+  }
+  .config-show-title{
+    display: none;
+  }
+  .config p {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24p;
+    color: #090A0A;
+    margin-bottom: 16px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .content-title-login {
+    margin-top: 5rem;
+  }
+
+  .create-qr-font-size {
+    font-size: 13px;
+    width: 7rem;
+  }
+
+  .create-qr-font-size-en {
+    font-size: 13px;
+    width: 240px;
+  }
+
+  .describe-bank {
+    margin-top: 75px;
+  }
+
+  .topic-see-more {
+    display: flex;
+    padding-top: 20px;
+  }
+
+  .config-under {
+    flex-direction: column;
+    padding: none;
+  }
+
+  .config {
+    border: none
+  }
+
+  .config-show-title {
+    display: none;
+  }
+
+  .config p {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24p;
+    color: #090A0A;
+    margin-bottom: 16px;
+  }
+
+  .filter-bought {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .describe-bank {
+    margin-top: 60px;
+  }
+
+  .create-qr-font-size {
+    font-size: 10px;
+    width: 115px;
+  }
+
+  .create-qr-font-size-en {
+    font-size: 10px;
+    width: 220px;
+  }
+}
+
+/*=================== END ===================== */
+/* xu ly cho phan api */
+
+.api-input {
+  border: 1px solid #e3e5e5;
+  border-radius: 4px;
+}
