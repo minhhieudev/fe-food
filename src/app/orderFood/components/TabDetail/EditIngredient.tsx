@@ -22,7 +22,7 @@ interface PageProps {
   favoriteIngredientsProp: any
 }
 
-const EditIngredient = ({ params ,favoriteIngredientsProp}: PageProps) => {
+const EditIngredient = ({ params, favoriteIngredientsProp }: PageProps) => {
   const [favoriteIngredients, setFavoriteIngredients] = useState<string[]>([]);
   const [IngredientList, setIngredientList] = useState([]);
   const dispatch = useDispatch();
@@ -46,25 +46,21 @@ const EditIngredient = ({ params ,favoriteIngredientsProp}: PageProps) => {
       })
     );
   }
+
   const cancelMeal = () => {
     dispatch(
       MealActions.cancelMeal({
-        body: {
-          mealID: params?.mealOrderId
-        },
+        mealID: params?.mealOrderId,
         onSuccess: (rs: any) => {
-          toast.success('Đã xoá bữa ăn');
-          //router.push(`${pathname}/meal?orderID=${rs.data.orderId}`);
+          toast.success('Đã hủy bữa ăn')
         },
         onFail: (rs: any) => {
           toast.error(rs);
         }
       })
     );
-  }
-  useEffect(() => {
-    console.log('5555:',serviceDetail)
-  }, []);
+  };
+
 
   // useEffect(() => {
   //   dispatch(

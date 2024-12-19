@@ -88,7 +88,7 @@ const ContainerMenu: React.FC<Props> = ({ listMenu = [], setNamePath, isOpenClos
       path: "/api",
     },
     {
-      name: 'Cập nhật thông tin',
+      name: 'Thông tin',
       icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
       iconPick: <Cog8ToothIcon className="w-5 h-5 font-bold" />,
       path: "/profile",

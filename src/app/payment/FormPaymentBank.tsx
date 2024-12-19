@@ -109,15 +109,20 @@ export default function FormPaymentBank() {
   const data_describe_bank = [
     {
       key: lang.gen("recharge.account-name"),
-      value: bankInfo?.bankInfo?.bankAccountName 
+      //value: bankInfo?.bankInfo?.bankAccountName 
+      value: 'Võ Minh Hiếu' 
     },
     {
       key:lang.gen("recharge.bank"),
-      value: bankInfo?.bankInfo.bankName
+      //value: bankInfo?.bankInfo.bankName
+      value: 'VietinBank' 
+
     },
     {
       key: lang.gen("recharge.account-number"),
-      value: bankInfo?.bankInfo.bankAccountNumber
+      //value: bankInfo?.bankInfo.bankAccountNumber,
+      value: '0788676320' 
+
     },
     {
       key: lang.gen("recharge.content-bank"),

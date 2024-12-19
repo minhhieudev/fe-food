@@ -77,6 +77,7 @@ const Order: React.FC<OrderProps> = ({ order, index, openIndex, setOpenIndex }) 
 
 
   const cancelMeal = () => {
+    alert(order._id)
 
     dispatch(
       MealActions.cancelMeal({

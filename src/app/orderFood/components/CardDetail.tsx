@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Config } from "@/core/constants/configs";
 import { useSelector } from "react-redux";
 import { AuthSelectors } from "@/modules/auth/slice";
+import { TagIcon } from "@heroicons/react/24/outline";
 
 interface Meal {
   id?: string;
@@ -42,14 +43,16 @@ const CardDetail: React.FC<Meal> = ({ id, name, description, price, type, image,
             <h3 className="text-lg font-bold">{name}</h3>
             <p className="text-orange-500 text-xl font-bold">{formatCurrency(Number(price))}đ</p>
           </div>
+          {totalSub && (
           <p className="text-green-600 mb-2 font-bold">{totalSub} người đã đặt</p>
+          )}
           <p className="text-sm text-black font-bold mb-4" dangerouslySetInnerHTML={{ __html: description }}></p>
 
         </div>
         <div className="bg-white flex items-center justify-start">
-          <div className='ml-4 pb-2 space-x-2 flex-wrap' >
+          <div className='ml-4 pb-2 space-x-2 flex flex-wrap' >
             {serviceTags?.map((value, index) => (
-              <span key={index} className="border rounded-md font-bold px-3 py-1 text-sm text-blue-600 bg-gradient-to-r from-purple-200 to-pink-200">{value}</span>
+              <span key={index} className="border rounded-md font-bold px-2 py-1 text-sm text-blue-600 bg-gradient-to-r from-purple-200 to-pink-200 flex items-center"><TagIcon className="w-4 h-4 mr-1" />{value}</span>
             ))}
           </div>
         </div>

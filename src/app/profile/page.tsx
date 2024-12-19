@@ -9,7 +9,7 @@ import SysStorage from "@/core/services/storage";
 import { useDispatch } from "react-redux";
 
 export default function Profile() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // Contact info states
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -36,8 +36,8 @@ export default function Profile() {
           setGender(userData.info?.gender || "male");
         }
       });
-    } 
-    }, []);
+    }
+  }, []);
 
   const handleUpdateProfile = () => {
     const profileData = {
@@ -67,30 +67,6 @@ export default function Profile() {
     <div className="p-[20px]">
       <div className="flex flex-col lg:flex-row gap-[20px]">
         <div className="border-1 border-gray-300 rounded-[12px] p-[20px] flex-1">
-          <h2 className="text-xl font-bold mb-4">Thông tin liên hệ</h2>
-          <div className="flex flex-col gap-[20px] max-w-[500px]">
-            <TextInputRepair
-              label="Số điện thoại"
-              placeholder="Nhập số điện thoại"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
-            <TextInputRepair
-              label="Địa chỉ"
-              placeholder="Nhập địa chỉ"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
-            <TextInputRepair
-              label="Email"
-              placeholder="Nhập email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div className="border-1 border-gray-300 rounded-[12px] p-[20px] flex-1">
           <h2 className="text-xl font-bold mb-4">Thông tin cá nhân</h2>
           <div className="flex flex-col gap-[20px] max-w-[500px]">
             <TextInputRepair
@@ -116,6 +92,31 @@ export default function Profile() {
             </Select>
           </div>
         </div>
+        <div className="border-1 border-gray-300 rounded-[12px] p-[20px] flex-1">
+          <h2 className="text-xl font-bold mb-4">Thông tin liên hệ</h2>
+          <div className="flex flex-col gap-[20px] max-w-[500px]">
+            <TextInputRepair
+              label="Số điện thoại"
+              placeholder="Nhập số điện thoại"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+            <TextInputRepair
+              label="Địa chỉ"
+              placeholder="Nhập địa chỉ"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+            <TextInputRepair
+              label="Email"
+              placeholder="Nhập email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
+
+
       </div>
 
       <Button

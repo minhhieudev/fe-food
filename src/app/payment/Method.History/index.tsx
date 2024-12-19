@@ -279,15 +279,15 @@ export default function MethodHistory() {
           </div>
           {/*==================== END ==============================*/}
           <div>
-            {currentMethod == 1 && <FormPayment />}
-            {currentMethod == 0 && <FormPaymentBank />}
+            {/* {currentMethod == 1 && <FormPayment />} */}
+            {currentMethod == 2 && <FormPaymentBank />}
             {currentMethod == 2 && (
               <div className=" text-[18px] font-bold flex flex-col border-1 border-gray-300 rounded-[10px] p-[20px] gap-[20px]">
                 <div>Liên hệ trực tiếp</div>
                 <SupportInformation flag={1} />
               </div>
             )}
-            {currentMethod == 3 && <FormPerfectMoney />}
+            {/* {currentMethod == 3 && <FormPerfectMoney />} */}
           </div>
         </div>
       )}

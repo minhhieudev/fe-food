@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from "next/image";
 import MealCard from "./components/MealCard";
-import bannerImage from "../asset/images/meal-test.jpg";
+import bannerImage from "../asset/images/image1.png";
 import {
   ServicePackageActions,
   ServicePackageSelectors,
