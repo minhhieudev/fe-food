@@ -6,31 +6,38 @@ import FormCreateBio from "./components/FormCreateBio";
 import FormVerifyOtp from "./components/FormVerifyOtp";
 import ConfirmAlert from "./components/ConfirmAlert";
 
-export default function RegisterPage({ isConfirmToken = false, isVerify = false }: { isConfirmToken?: boolean; isVerify?: boolean; }) {
+interface RegisterPageProps {
+  isConfirmToken?: boolean;
+  isVerify?: boolean;
+}
+
+const RegisterPage: React.FC<RegisterPageProps> = ({ isConfirmToken = false, isVerify = false }) => {
   const [step, setStep] = useState(1);
-  const [tokenOtp, setTokenOtp] = useState('')
-  const [clientData,setClientData] = useState({});
+  const [tokenOtp, setTokenOtp] = useState('');
+  const [clientData, setClientData] = useState({});
 
   useEffect(() => {
     if (isConfirmToken) {
       setStep(3);
     }
-  }, []);
+  }, [isConfirmToken]);
 
   const onToken = (token: any) => {
-    setTokenOtp(token)
-  }
+    setTokenOtp(token);
+  };
 
   const onClientData = (clientData: any) => {
-    setClientData(clientData)
-  }
+    setClientData(clientData);
+  };
 
   return (
     <div style={{}} className="m-auto h-full">
       {step === 1 && <FormCreateBio setStep={setStep} />}
-      {step === 2 && <FormRegister setStep={setStep} onToken={onToken} onClientData={onClientData}/>}
-      {step === 3 && <FormVerifyOtp tokenOtp={tokenOtp} clientData={clientData}/>}
+      {step === 2 && <FormRegister setStep={setStep} onToken={onToken} onClientData={onClientData} />}
+      {step === 3 && <FormVerifyOtp tokenOtp={tokenOtp} clientData={clientData} />}
       {/* {step === 3 && <ConfirmAlert isVerify={isVerify} />} */}
     </div>
   );
-}
+};
+
+export default RegisterPage;
