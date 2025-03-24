@@ -6,15 +6,10 @@ import FormCreateBio from "./components/FormCreateBio";
 import FormVerifyOtp from "./components/FormVerifyOtp";
 import ConfirmAlert from "./components/ConfirmAlert";
 
-interface RegisterPageProps {
-  isConfirmToken?: boolean;
-  isVerify?: boolean;
-}
-
-const RegisterPage = ({ isConfirmToken = false, isVerify = false }: RegisterPageProps) => {
-  const [step, setStep] = useState(1);
-  const [tokenOtp, setTokenOtp] = useState('');
-  const [clientData, setClientData] = useState({});
+const RegisterPage = ({ isConfirmToken = false, isVerify = false }: { isConfirmToken?: any; isVerify?: any; }) => {
+  const [step, setStep] = useState<any>(1);
+  const [tokenOtp, setTokenOtp] = useState<any>('');
+  const [clientData, setClientData] = useState<any>({});
 
   useEffect(() => {
     if (isConfirmToken) {
