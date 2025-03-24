@@ -6,7 +6,7 @@ import FormCreateBio from "./components/FormCreateBio";
 import FormVerifyOtp from "./components/FormVerifyOtp";
 import ConfirmAlert from "./components/ConfirmAlert";
 
-export default function RegisterPage({ isConfirmToken = false, isVerify = false }) {
+export default function RegisterPage({ isConfirmToken = false, isVerify = false }: { isConfirmToken?: boolean; isVerify?: boolean; }) {
   const [step, setStep] = useState(1);
   const [tokenOtp, setTokenOtp] = useState('')
   const [clientData,setClientData] = useState({});
