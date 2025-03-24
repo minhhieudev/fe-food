@@ -1,4 +1,4 @@
-import MSTFetch from "@/services/fetch";
+import MSTFetch from "../../../core/services/fetch";
 import dynamic from "next/dynamic";
 
 // Temporarily removed import for dynamic component
