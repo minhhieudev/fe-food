@@ -11,7 +11,7 @@ interface RegisterPageProps {
   isVerify?: boolean;
 }
 
-const RegisterPage: React.FC<RegisterPageProps> = ({ isConfirmToken = false, isVerify = false }) => {
+const RegisterPage = ({ isConfirmToken = false, isVerify = false }: RegisterPageProps) => {
   const [step, setStep] = useState(1);
   const [tokenOtp, setTokenOtp] = useState('');
   const [clientData, setClientData] = useState({});
