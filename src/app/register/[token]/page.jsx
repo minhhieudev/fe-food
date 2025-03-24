@@ -1,9 +1,11 @@
 import MSTFetch from "@/services/fetch";
 import dynamic from "next/dynamic";
 
-const ConfirmTokenComponent = dynamic(() => import("@/app-pages/auth/register"), {
-  ssr: false,
-});
+// Temporarily removed import for dynamic component
+// const ConfirmTokenComponent = dynamic(() => import("@/app-pages/auth/register"), {
+//   ssr: false,
+// });
+
 async function fetchData(token) {
   const res = await MSTFetch.post(`frontend-api/customer-auth/register/verify-email`, { token });
 
@@ -17,7 +19,8 @@ async function fetchData(token) {
 const BioPage = async ({ params }) => {
   const data = await fetchData(params.token);
 
-  return <ConfirmTokenComponent isConfirmToken={true} isVerify={data} />;
+  // Temporarily removed component rendering
+  // return <ConfirmTokenComponent isConfirmToken={true} isVerify={data} />;
 };
 
 export default BioPage;
