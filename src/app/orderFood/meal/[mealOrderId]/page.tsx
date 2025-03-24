@@ -48,9 +48,9 @@ const Page: React.FC<PageProps> = ({ params }) => {
                 <Tab list={tabList} onTabSelect={setSelectedTab} />
             </div>
             <div className="mt-2">
-                {selectedTab === "Điều chỉnh thành phần" && <EditIngredient params={params} favoriteIngredientsProp={mealDetail?.favoriteIngredients}/>}
+                {(selectedTab === "Điều chỉnh thành phần" && mealDetail.status != 'inprogress') && <EditIngredient params={params} favoriteIngredientsProp={mealDetail?.favoriteIngredients}/>}
                 {selectedTab === "Đánh giá bữa ăn" && <EvaluateMeal params={params} />}
-                {selectedTab === "Đổi ngày giao" && <ChangeDate params={params} estimatedDate={mealDetail?.estimatedDate}  estimatedTime={mealDetail?.estimatedTime}/>}
+                {(selectedTab === "Đổi ngày giao" && mealDetail.status != 'inprogress')  && <ChangeDate params={params} estimatedDate={mealDetail?.estimatedDate}  estimatedTime={mealDetail?.estimatedTime}/>}
             </div>
         </div>
     );

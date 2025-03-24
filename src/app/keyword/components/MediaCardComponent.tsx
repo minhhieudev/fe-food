@@ -28,7 +28,7 @@ function MediaCardComponent({
         height={height}
         src={`${dataCheck[platform]}${id}`}
         allowFullScreen
-        className={classForIframe} // người viết : đinh văn thành; LÝ do: mong muốn bo tròn đường viền của video
+        className={classForIframe} 
       />
     </div>
   );

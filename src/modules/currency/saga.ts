@@ -38,7 +38,7 @@ function* setCurrency({ payload }: PayloadAction<any>) {
         JSON.stringify({
           ...loginInfo,
           currency: item._id,
-          currencyEditedVersion: item, // Lưu lại thông tin của loại tiền tệ xuống local Storage - Người viết: Đinh văn Thành - ngày viết: 27-05-2024
+          currencyEditedVersion: item, 
         })
       );
 
@@ -65,7 +65,7 @@ function* getCurrencies({ payload }: PayloadAction<any>) {
                 currencyUsd: {
                   "code": e.code,
                   "exchangeRate":e.exchangeRate
-                }, // Lưu lại thông tin của loại tiền tệ Usd xuống local Storage - Người viết: Đinh văn Thành - ngày viết: 27-05-2024
+                }, 
               })
             );
           }

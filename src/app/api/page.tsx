@@ -53,73 +53,13 @@ export default function Api() {
     useEffect(()=>{
         handleGetAPIKey()
     },[])
-    /*
-        Người viết : Đinh Văn Thành
-        Ngày viết : 21-05-2024
-        Chức năng : copy thuộc tính cần lấy
-        Params : data:  dữ liệu của thuộc tính càn lấy
-    */
+  
     const copyToClipboard = (data:any) => {
         navigator.clipboard.writeText(JSON.stringify(data))
         .then()
         .catch()
     };
-    /*
-        Người viết : Đinh Văn Thành
-        Ngày viết : 25-05-2024
-        Chức năng: Render chuỗi json ra html hiện thị màn hình
-
-        Ghi chú: các cấp độ hiện thị ra màn hình
-            - Câp độ một: nếu phần từ không có phần tử con bên trong thì hiện theo dạng sau
-                type: tên của thuộc tính 
-                typeOf: kiểu của thuộc tính
-                name: giá trị của thuộc tính
-            ====================
-            VD: {
-                name: "dev"
-            }
-            type: name,
-            typeOf: string,
-            name: dev,
-            =====================
-            - cấp độ hai: nếu phần tử có phần tử con thì đưa tất phần tử con vào một mảng 
-            type: tên của thuộc tính
-            typeOf: kiểu của thuộc tính
-            name : mảng của các phần tử con có dạng
-            [
-                _type: tên của thuộc tính của phần tử con
-                _typeOf: kiểu của thuộc tính của phần tử con
-                _name : giá trị của thuộc tính của phần tử con
-            ]
-        ================================
-        Vd: body:{
-            "_id": "664f45bc5c4630cc75a53e62",
-            "name": "Youtube"
-        }
-        type: body,
-        typeOf: object,
-        name: [
-            {
-                _type:id,
-                _typeOf: string,
-                _name: "664f45bc5c4630cc75a53e62"
-            },
-            ..........
-        ]
-        =============================
-        Phần tử cha ( phần tủ cuối cùng ) có dạng một mảng chứa một đối tượng
-        [
-            key: tên của thuộc tính
-            method: kiểu của thuộc tính
-            data: mạng chưa các thành phần như ( kết quả trả về của api, thông điệp của api ) có dạng
-            [
-                type: tên của thuộc tính 
-                typeOf: kiểu của thuộc tính 
-                name : giá trị của thuộc tính 
-            ]
-            value: giá trị của phần từ con mà lấy được ở phần trên
-        ]
-    */
+   
     const handleEndPoints = (event:any)=>{
         setKey(event.key)
         setDataRequest([]);
@@ -321,11 +261,6 @@ export default function Api() {
     };
     /*================================== END =====================================*/
 
-    /*
-        Người viết: Đinh Văn Thành
-        Ngày viết: 27-05-2024
-        Chức năng: khi mở màn hình api thì hiển thị phần tử đầu tiên
-    */
     useEffect(()=>{
         let dataFirst = dataApi[0];
         handleEndPoints(dataFirst);

@@ -53,7 +53,7 @@ const TopicSlice = createSlice({
     },
     getTopicDetail: (state: TopicProps, { payload }: PayloadAction<any>) => {},
     followTopic: (state: TopicProps, { payload }: PayloadAction<any>) => {},
-    followKeyWord: (state: TopicProps, { payload }: PayloadAction<any>) => {}, /*Người viết: Đinh văn thành; chức năng action cập nhật trạng thái của chủ đề ứng với từ khóa đã chọn*/
+    followKeyWord: (state: TopicProps, { payload }: PayloadAction<any>) => {}, 
     getKeyWordDetail: (state: TopicProps, { payload }: PayloadAction<any>) => {},
   },
 });

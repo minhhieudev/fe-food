@@ -33,13 +33,6 @@ export const TopicRequest = {
   followTopic: (body: { topicID: string }) =>
     MSTFetchKWT.put(`topic/customer/follow`, body),
 
-  /*
-    Người viết: Đinh văn thành
-    Ngày viết: 03-06-2024
-    CHức năng: cập nhật trạng thái theo dõi chủ đề ứng với từ khóa đã chọn
-    Method: PUT
-    Param: id của chủ để muốn cập nhật trạng thái
-  */
   followKeyWord: (body: { keywordID: string }) =>
     MSTFetchKWT.put(`customer/follow`, body),
 

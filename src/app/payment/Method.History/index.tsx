@@ -104,7 +104,6 @@ export default function MethodHistory() {
       }
     });
     /*
-      Người viết: Đinh văn Thành
       Ngày viết: 29-05-2024
       Chức năng: sắp xếp thức tự hiện thỉ trên màn hình UI
         VD: - màn hình UI hiện thị theo thứ tự:  nạp tièn qua ngân hàng, nạp tiền qua paypal,nạp tiên qua perfect money 

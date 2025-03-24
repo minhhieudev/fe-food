@@ -112,11 +112,6 @@ function shortenContent(content: string, maxLength = 40) {
   }
 }
 
-/*
-  Người viết: Đinh Văn Thành
-  ngày viết: 20-05-2024
-  Chức năng: nhận biết được kích thức của màn hình khi co gian màn hình
-*/
 function getClientSize() {
   var width = 0,
     height = 0;
@@ -141,11 +136,7 @@ function getClientSize() {
 
   return { width: width, height: height };
 }
-/*
-  Người viết: Đinh văn thành
-  Ngày viết: 21-05-2024 
-  Chức năng: validate trường email khi người dùng nhập từ ô input 
-*/
+
 function validateEmail(email: string) {
   return email.match(
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/

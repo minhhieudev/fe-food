@@ -72,7 +72,7 @@ const ListIngredient = ({ IngredientList, CheckBox, showTags, onFavoriteChange, 
   }, [IngredientList]);
 
   return (
-    <div className="max-h-[220px] overflow-y-auto">
+    <div className="max-h-[250px] overflow-y-auto">
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-5 border-y-1">
         {IngredientList?.map((item, index) => (
           <div key={index} className="flex gap-2 h-16 my-2">

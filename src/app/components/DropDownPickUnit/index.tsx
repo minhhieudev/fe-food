@@ -38,11 +38,7 @@ export default function DropDownPickUnit(props: Props) {
       );
     }
   }, [dropDown]);
-  /*
-    Người viết: Đinh Văn Thành
-    Ngày viết: 27-05-2024
-    Chức Năng: Khi đã chọn vào loại tiền tệ xong, loading lại trình duyệt vẫn dữ nguyên lại tiền tệ đã chọn 
-  */
+ 
   useEffect(()=>{
     const loginInfo = JSON.parse(localStorage.getItem("USER_INFO") || "{}");
     if(loginInfo && loginInfo.currencyEditedVersion){

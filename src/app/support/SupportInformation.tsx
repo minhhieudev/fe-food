@@ -7,13 +7,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { SVGFB, SVGSystem, SVGTele, SVGZalo } from "../asset/svgs";
 
-/*
-  Người viết: Đinh văn thành
-  Ngày viết: 29-05-2024
-  Chức năng: Thêm biến flag vào trong prop của component, nhận biết xem có cần gọi api nhiều lần hay không
-  VD: - nếu component cha đã gọi đến api rồi mà component con vẫn gọi lại thì để flag = 1 cho component con biết là component cha đã gọi api rồi
-      - nếu component cha đã gọi đến api rồi mà component con vẫn gọi lại thì để flag = 2 cho component con biết là component cha chưa gọi api 
-*/
 interface Prop {
   flag: number
 };

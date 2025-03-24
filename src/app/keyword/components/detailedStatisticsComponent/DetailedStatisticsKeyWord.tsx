@@ -1,11 +1,3 @@
-/*
-  Người viết: Đinh văn thành
-  Ngày viết: 03-06-2024
-  Chức năng: thống kê các thông tin theo từ khóa đa chọn
-  Param: id là mã của từ khóa muốn tìm kiếm
-        OnHide: là một hàm để đóng hoặc mở modal 
-*/
-
 import CONST from "@/core/services/const";
 import React from "react";
 import { useAppDispatch } from "@/core/services/hook";

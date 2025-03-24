@@ -31,11 +31,7 @@ function* followTopic({ payload }: PayloadAction<any>) {
     }
   } catch (error) {}
 }
-/*
-    Người viết: Đinh văn thành
-    Ngày viết: 03-06-2024
-    CHức năng: cập nhật trạng thái theo dõi chủ đề ứng với từ khóa đã chọn
-  */
+
 function* followKeyWord({ payload }: PayloadAction<any>) {
   try {
     const { id, onSuccess } = payload;

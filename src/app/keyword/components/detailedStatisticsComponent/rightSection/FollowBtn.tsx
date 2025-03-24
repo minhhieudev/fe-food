@@ -6,7 +6,7 @@ interface FollowBtnProp{
   followed:any
   onFollow: (e:any) => void | undefined;
   id: string
-  value: string /* Người viết: Đinh văn thành, chức năng: để phân biệt đang hiện chi tiết của từ khỏa hay là chủ để*/
+  value: string 
 }
 
 export default function FollowBtn(prop: FollowBtnProp) {

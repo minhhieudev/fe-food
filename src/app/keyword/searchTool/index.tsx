@@ -104,29 +104,6 @@ export default function SearchTopTopic(props: Props) {
     setIsShowPopupKeyWordRelated(true);
   };
 
-  /*
-    Người sửa: Đinh văn thành
-    Ngày sửa: 03-06-2024
-    Lý do: hiện tại không còn dùng component KeywordRelated này để tìm kiếm chi tiết từ khóa nữa và thay vào đó dùng component DetailedStatisticsKeyWordComponent 
-    Chức năng vẫn được giữ nguyên như cũ 
-
-    Code cũ logic như sau 
-    ========================================
-    const renderModal = useMemo(() => {
-    return isShowPopupKeyWordRelated ? (
-      <KeywordRelated
-        id={keywordSelected?._id}
-        onHide={() => {
-          setIsShowPopupKeyWordRelated(false);
-          setKeywordSelected(null);
-        }}
-      />
-    ) : (
-      <></>
-    );
-  }, [isShowPopupKeyWordRelated, keywordSelected]);
-  ====================================================
-  */ 
   const renderModal = useMemo(() => {
     return isShowPopupKeyWordRelated ? (
       <DetailedStatisticsKeyWordComponent

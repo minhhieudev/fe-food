@@ -73,11 +73,7 @@ export default function FormPaymentBank() {
   }, [])
   /*====================== END ========================*/
 
-  /*
-    Nguời viết: Đinh văn thành
-    Ngày viết: 24-05-2024
-    Chức năng: (Call api lấy ra giá trị tiền tệ) => sửa lại lưu giá trị  xuống local Storage và lấy giá trị từ local Storage  
-  */
+  
   useEffect(()=>{
     const usd = JSON.parse(localStorage.getItem("USER_INFO") || "{}");
     if(usd.currencyUsd.code === 'USD'){

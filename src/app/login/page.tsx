@@ -105,7 +105,7 @@ export default function Login() {
           email: username,
           password: pass,
           onSuccess: (rs: any) => {
-            window.location.href = "/order";
+            window.location.href = "/orderFood";
           },
         })
       );
@@ -128,14 +128,7 @@ export default function Login() {
       })
     );
   };
-  // ==================================================================
-  /*
-   * Người viết : Đinh văn Thành
-   * Ngày viết: 18-05-2024
-   * Chức năng: Call api gửi mail lấy otp
-   * Method : Post
-   * Body: truyền email của người dùng nhập từ UI
-   */
+  
   const handleSendMail = async () => {
     if (sendMail != "" && validateEmail(sendMail)) {
       dispatch(
@@ -153,13 +146,7 @@ export default function Login() {
     }
   };
   // ===================== END =======================
-  /*
-   * Người viết : Đinh văn Thành
-   * Ngày viết: 18-05-2024
-   * Chức năng: Call api lấy token
-   * Method : Post
-   * Body: truyền email của người dùng nhập từ UI từ trước và opt lấy từ mail của người dùng
-   */
+  
   const handleSendOtp = async () => {
     if (otp.length == 6) {
       dispatch(
@@ -178,13 +165,7 @@ export default function Login() {
     }
   };
   // ===================== END =======================
-  /*
-   * Người viết : Đinh văn Thành
-   * Ngày viết: 18-05-2024
-   * Chức năng: Call api đổi mật khẩu
-   * Method : Post
-   * Body: truyền token của người dùng khi xác thực opt thành công và password lấy từ người dùng nhập UI
-   */
+  
   const handleUpdatePassword = async () => {
     dispatch(
       AuthActions.updatePassword({
@@ -205,11 +186,7 @@ export default function Login() {
     );
   };
   // ===================== END =======================
-  /*
-    Người viết: Đinh Văn Thành
-    Ngày viết: 21-05-2024
-    Chức năng: call xự kiện onchange Email
-  */
+  
   const handleOnchangeEmail = (event: any) => {
     if (event.target.value == "" || !validateEmail(event.target.value)) {
       setErrorEmail(lang.gen("login.error-email"));
@@ -219,11 +196,7 @@ export default function Login() {
     setSendMail(event.target.value);
   };
   /*======================= END =================================*/
-  /*
-    Người viết: Đinh Văn Thành
-    Ngày viết: 21-05-2024
-    Chức năng: call xự kiện onchange Otp
-  */
+  
   const handleOnchangeOtp = (event: any) => {
     if (
       event.target.value == "" ||

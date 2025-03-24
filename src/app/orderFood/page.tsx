@@ -81,7 +81,7 @@ const MealList: React.FC = () => {
       {
         Boolean((servicePackageWeeklyMonthly || []).length) &&
         <div className="mb-3">
-          <h2 className="text-xl font-semibold mb-4">Danh sách được ưa chuộng</h2>
+          <h2 className="text-xl font-semibold mb-4">Gói ăn theo tuần / tháng</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {servicePackageWeeklyMonthly.map((meal: any) => (
               <MealCard key={meal._id} {...meal} type={true} />

@@ -75,11 +75,7 @@ body {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-/*
-  Người viết: Đinh văn Thành
-  Ngày viết: 27-05-2024
-  Chức năng: responsive cho tỷ lệ các màn hình
-*/
+
 @media (min-width: 576px) {
   .content-title-login {
     margin-top: 5rem;

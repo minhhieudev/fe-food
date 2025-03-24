@@ -88,8 +88,8 @@ const Page = ({ params }: { params: { orderFoodId: string } }) => {
               subscriptionID={serviceDetail.subscriptionID}
             />
           </div>
-          <h2 className="text-xl font-bold mt-4">Mục tiêu cho bữa ăn</h2>
-          <div className="flex gap-2 justify-between flex-wrap mt-3 max-h-60 overflow-y-auto">
+          <h2 className="text-xl font-bold mt-4 ">Mục tiêu cho bữa ăn</h2>
+          <div className="flex gap-2 px-3 justify-between flex-wrap mt-3 max-h-60 overflow-y-auto">
             {ListTag?.map((tag: any, index: number) => (
               <div key={index} className={`flex items-center border-b-4`} style={{ borderColor: tag.color }}>
                 <div className="w-4 h-4" style={{ backgroundColor: tag.color, borderRadius: '50%' }}></div>
