@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import { Cabin } from "next/font/google";
 import "./globals.css";
 import { usePathname } from "next/navigation";
+import ChatbotWidget from '@/app/orderFood/components/ChatbotWidget';
 const inter = Cabin({ subsets: ["vietnamese"] });
 const DynamicContainerPage = dynamic(
   () => import("../app/configPage/ContainerPage"),
@@ -32,6 +33,7 @@ const RootLayout = ({
               </div>
             </Auth>
           </ReduxProvider>
+          <ChatbotWidget />
         </body>
       </html>
     );
@@ -48,6 +50,7 @@ const RootLayout = ({
               </div>
             </Auth>
           </Client>
+          <ChatbotWidget />
         </ReduxProvider>
       </body>
     </html>

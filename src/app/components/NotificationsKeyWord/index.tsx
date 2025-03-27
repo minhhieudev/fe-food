@@ -16,7 +16,7 @@ export default function NotificationsKeyWord() {
   }, []);
   useEffect(() => {
     document.addEventListener("click", (e: any) => {
-      if (!btnRef.current.contains(e.target)) {
+      if (!btnRef?.current?.contains(e.target)) {
         setShow(false);
       }
     });

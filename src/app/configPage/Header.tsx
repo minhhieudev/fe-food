@@ -36,8 +36,8 @@ export default function Header() {
     setIsOpen(true);
   };
   return (
-    <div>
-      <div className="hidden max-lg:flex justify-between w-[100%] p-[12px] bg-[#F2F4F5] t-[0px]">
+    <div style={{ zIndex: 9999, position: 'fixed', top: 0, width: '100%' }}>
+      <div className="hidden max-lg:flex justify-between w-full p-[12px] bg-[#F2F4F5]">
         <div className="flex gap-[5px] justify-center items-center">
           <motion.div
             initial={false}
@@ -53,9 +53,9 @@ export default function Header() {
               backdrop="opaque"
               className="h-[800px] relative "
               shouldBlockScroll={true}
-              isOpen= {isOpenClose}
+              isOpen={isOpenClose}
               onClose={() => {
-                setIsOpenClose(false)
+                setIsOpenClose(false);
                 setIsOpenResponsive(false);
               }}
             >
@@ -64,11 +64,11 @@ export default function Header() {
                   color="#FF8900"
                   width={31}
                   className="cursor-pointer"
-                  onClick = {()=>{setIsOpenClose(true)}}
+                  onClick={() => { setIsOpenClose(true); }}
                 />
               </PopoverTrigger>
               <PopoverContent className="bg-[#fff] justify-normal flex mt-[-53px] pb-[53px] ml-[-15px] w-full">
-                <ContainerMenu isOpenClose = {isOpenClose} setIsOpenClose= {setIsOpenClose}/>
+                <ContainerMenu isOpenClose={isOpenClose} setIsOpenClose={setIsOpenClose} />
               </PopoverContent>
             </Popover>
           </div>

@@ -1,0 +1,65 @@
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slowZoom {
+  0%, 100% { transform: scale(1.0); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes movePath {
+  0% { transform: translate(-50%, -50%) translateX(0%); }
+  25% { transform: translate(-50%, -50%) translateX(100%); }
+  50% { transform: translate(-50%, -50%) translateX(100%) translateY(100%); }
+  75% { transform: translate(-50%, -50%) translateX(0%) translateY(100%); }
+  100% { transform: translate(-50%, -50%) translateX(0%); }
+}
+
+.animate-float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-slow-zoom {
+  animation: slowZoom 30s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up-delayed {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+.animate-fade-in-up-more-delayed {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+.animate-move-path {
+  animation: movePath 10s ease-in-out infinite;
+}
+
+.animate-ping-slow {
+  animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+} 

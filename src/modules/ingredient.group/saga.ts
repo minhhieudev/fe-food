@@ -12,7 +12,6 @@ function* getIngredientGroup({ payload }: PayloadAction<any>) {
       yield IngredientGroupRequest.getIngredientGroup();
     yield put(AppAction.hideLoading());
     if (res.success) {
-      yield put(IngredientGroupActions.setIngredientGroup(res));
       onSuccess && onSuccess(res);
     } else {
       onFail && onFail(res);

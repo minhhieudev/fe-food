@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./style.css";
 
 interface TabItem {
     name: string;
@@ -20,8 +19,8 @@ const Tab: React.FC<TabProps> = ({ list, onTabSelect }) => {
     };
 
     return (
-        <div>
-            <div className="tab-container">
+        <div className="overflow-x-auto whitespace-nowrap">
+            <div className="flex">
                 {list.map((item, index) => (
                     <OneItem
                         key={index}
@@ -38,16 +37,12 @@ const Tab: React.FC<TabProps> = ({ list, onTabSelect }) => {
 
 const OneItem: React.FC<{ item: TabItem; currentIndex: number; onTabClick: () => void; index: number }> = ({ item, currentIndex, onTabClick, index }) => {
     return (
-        <div onClick={onTabClick}>
-            <div className={"tab-one-item"}>
-                <div
-                    className={currentIndex === index ? "tab-one-item-label-active" : "tab-one-item-label-unactive"}
-                >
+        <div onClick={onTabClick} className="cursor-pointer">
+            <div className="flex flex-col items-center p-4">
+                <div className={`text-lg ${currentIndex === index ? "font-bold text-green-600" : "text-gray-600"}`}>
                     {item.name}
                 </div>
-                <div
-                    className={currentIndex === index ? "tab-one-item-line-active" : "tab-one-item-line-unactive"}
-                />
+                <div className={`h-1 ${currentIndex === index ? "bg-green-600" : "bg-transparent"} transition-all duration-300`} />
             </div>
         </div>
     );

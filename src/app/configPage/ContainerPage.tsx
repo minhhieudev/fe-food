@@ -11,7 +11,6 @@ import {
 import { motion, useCycle } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useSelector } from "react-redux";
-import { SVGLogoImg } from "../asset/svgs";
 import ContainerMenu from "./ContainerMenu";
 import Header from "./Header";
 import KeyWord from "../keyword/page";
@@ -21,6 +20,8 @@ import DropDownPickLanguage from "../components/DropDownPickLanguage";
 import DropDownPickUnit from "../components/DropDownPickUnit";
 import Notifications from "../components/Notifications";
 import ContainerMenuColumn from "./ContainerMenuColumn";
+import logo from "../asset/images/logo.png";
+
 
 function ContainerPage({ children }: any) {
   const pathName = usePathname();
@@ -63,7 +64,7 @@ function ContainerPage({ children }: any) {
       ) : (
         <div className="relative w-full">
           <div className="relative">
-            <nav className="fixed w-full top-0 left-0 z-0">
+            <nav className="fixed w-full top-0 left-0 z-50">
               <div className="lg:block hidden lg:px-[24px]">
                 <motion.div
                   className="w-[264px] overflow-hidden"
@@ -73,20 +74,26 @@ function ContainerPage({ children }: any) {
                   transition={{ duration: 0.3 }}
                 >
                   <motion.div
-                    className="bg-white lg:flex items-center justify-between overflow-auto w-[280px] lg:rounded-none rounded-[12px] p-[8px]"
+                    className="bg-white lg:flex items-center justify-between overflow-auto w-[280px] lg:rounded-none rounded-[12px] "
                     initial="visible"
                     animate={isOpen ? "visible" : "hidden"}
                     variants={variants}
                     transition={{ duration: 0.3 }}
                   >
                     <div className="flex items-center">
-                      <SVGLogoImg />
+                      <img
+                        src={logo.src}
+                        alt="Healthy Food Logo"
+                        width={60}
+                        height={50}
+                        className="object-contain"
+                      />
                       <ContainerMenu setNamePath={setNamePath} />
                     </div>
                     {/* user */}
                     <div className="flex items-center">
                       <div className="flex items-center gap-[20px] mr-[20px]">
-                        <DropDownPickLanguage />
+                        {/* <DropDownPickLanguage /> */}
                         <DropDownPickUnit
                           balance={dataWallet?.data?.wallet?.balance}
                         />

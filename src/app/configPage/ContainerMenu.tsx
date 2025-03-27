@@ -36,13 +36,13 @@ const ContainerMenu: React.FC<Props> = ({ listMenu = [], setNamePath, isOpenClos
   const pathName = usePathname();
 
   const ListMenu = [
-    {
-      name: lang.gen("menu.statistical"),
-      icon: <NewspaperIcon className="w-5 h-5 font-bold" color="#979C9E" />,
-      iconPick: <NewspaperIcon className="w-5 h-5 font-bold" />,
-      path: "/statistic",
-      children: [],
-    },
+    // {
+    //   name: lang.gen("menu.statistical"),
+    //   icon: <NewspaperIcon className="w-5 h-5 font-bold" color="#979C9E" />,
+    //   iconPick: <NewspaperIcon className="w-5 h-5 font-bold" />,
+    //   path: "/statistic",
+    //   children: [],
+    // },
     {
       name: lang.gen("menu.orderFood"),
       icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
@@ -69,24 +69,24 @@ const ContainerMenu: React.FC<Props> = ({ listMenu = [], setNamePath, isOpenClos
       iconPick: <CreditCardIcon className="w-5 h-5 font-bold" />,
       path: "/payment",
     },
-    {
-      name: lang.gen("menu.support"),
-      icon: <PhoneIcon className="w-5 h-5 font-bold" color="#979C9E" />,
-      iconPick: <PhoneIcon className="w-5 h-5 font-bold" />,
-      path: "/support",
-    },
-    {
-      name: lang.gen("menu.config"),
-      icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
-      iconPick: <Cog8ToothIcon className="w-5 h-5 font-bold" />,
-      path: "/config",
-    },
-    {
-      name: lang.gen("menu.api"),
-      icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
-      iconPick: <Cog8ToothIcon className="w-5 h-5 font-bold" />,
-      path: "/api",
-    },
+    // {
+    //   name: lang.gen("menu.support"),
+    //   icon: <PhoneIcon className="w-5 h-5 font-bold" color="#979C9E" />,
+    //   iconPick: <PhoneIcon className="w-5 h-5 font-bold" />,
+    //   path: "/support",
+    // },
+    // {
+    //   name: lang.gen("menu.config"),
+    //   icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
+    //   iconPick: <Cog8ToothIcon className="w-5 h-5 font-bold" />,
+    //   path: "/config",
+    // },
+    // {
+    //   name: lang.gen("menu.api"),
+    //   icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
+    //   iconPick: <Cog8ToothIcon className="w-5 h-5 font-bold" />,
+    //   path: "/api",
+    // },
     {
       name: 'Thông tin',
       icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
@@ -141,7 +141,7 @@ const ContainerMenu: React.FC<Props> = ({ listMenu = [], setNamePath, isOpenClos
 
   return (
     <>
-      <div className="lg:flex hidden p-[10px]">
+      <div className="lg:flex hidden">
         {ListMenu.map((item, index) => {
           return (
             <div key={index}>
@@ -180,7 +180,7 @@ const ContainerMenu: React.FC<Props> = ({ listMenu = [], setNamePath, isOpenClos
           {ListMenu.map((item, index) => {
             return (
               <div key={index}>
-                <div className="pt-2 flex justify-center items-center py-2">
+                <div className="pt-2 flex justify-center items-center">
                   <Button
                     className={
                       current == index

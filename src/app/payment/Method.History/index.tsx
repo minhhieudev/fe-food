@@ -294,7 +294,6 @@ export default function MethodHistory() {
     </div>
   );
 }
-
 const OneMethod = ({
   index,
   currentMethod,
@@ -327,3 +326,4 @@ const OneMethod = ({
     </div>
   );
 };
+
