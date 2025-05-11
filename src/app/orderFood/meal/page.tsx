@@ -81,30 +81,15 @@ const Page = ({ params }: { params: { orderFoodId: string } }) => {
     const cancelledMeals = listMeal.filter((meal: any) => meal.status === 'cancelled');
 
     return (
-        <div className="max-w-[1200px] mx-auto pb-12">
+        <div className="max-w-[1300px] mx-auto pb-12">
             {/* Hero section */}
-            <div className="bg-gradient-to-r from-emerald-600 to-teal-500 rounded-2xl p-6 mb-8 shadow-lg relative overflow-hidden">
+            <div className="bg-gradient-to-r from-emerald-600 to-teal-500 rounded-2xl px-6 py-4 mb-4 shadow-lg relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/pattern-dot.svg')] opacity-10"></div>
                 <div className="relative z-10">
                     <h1 className="text-3xl font-bold text-white mb-2">Chi tiết gói ăn của bạn</h1>
                     <p className="text-white/80 max-w-2xl mb-4">
                         Theo dõi lịch giao hàng, thay đổi thời gian và xem chi tiết bữa ăn dễ dàng
                     </p>
-                    
-                    <div className="flex items-center space-x-4 mt-4">
-                        <div className="flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                            <CalendarIcon className="h-5 w-5 text-white mr-2" />
-                            <span className="text-white font-medium">{orderDetail?.subscriptionID?.totalDate} ngày</span>
-                        </div>
-                        <div className="flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                            <TruckIcon className="h-5 w-5 text-white mr-2" />
-                            <span className="text-white font-medium">{orderDetail?.subscriptionID?.mealsPerDay} bữa/ngày</span>
-                        </div>
-                        <div className="flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                            <CreditCardIcon className="h-5 w-5 text-white mr-2" />
-                            <span className="text-white font-medium">{formatCurrency(summary?.grandTotal)} đ</span>
-                        </div>
-                    </div>
                 </div>
             </div>
 

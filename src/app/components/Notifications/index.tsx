@@ -1,53 +1,86 @@
 import { SVGBell } from "@/app/asset/svgs";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   ServiceOrderActions,
   ServiceOrderSelectors,
 } from "@/modules/services.order/slice";
 import { useAppDispatch } from "@/core/services/hook";
 import { useSelector } from "react-redux";
+import Portal from "../Portal";
 
 export default function Notifications() {
   const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
   const dataNoti = useSelector(ServiceOrderSelectors.notiList);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     dispatch(ServiceOrderActions.getNotiList({}));
   }, []);
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current && 
+        !dropdownRef.current.contains(event.target as Node) &&
+        buttonRef.current && 
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setShow(false);
+      }
+    }
+
+    if (show) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [show]);
+
+  // Tính toán vị trí của dropdown dựa vào vị trí của button
+  const getDropdownPosition = () => {
+    if (!buttonRef.current) return { top: 0, right: 0 };
+    
+    const rect = buttonRef.current.getBoundingClientRect();
+    return {
+      top: rect.bottom + window.scrollY + 15, // Khoảng cách từ button
+      right: window.innerWidth - rect.right - window.scrollX,
+    };
+  };
+
+  const position = getDropdownPosition();
+
   return (
     <>
-      {/* Overlay để bắt click outside */}
-      {show && (
-        <div 
-          className="fixed inset-0 z-30"
-          onClick={() => setShow(false)}
-        />
-      )}
-
-      <div className="flex flex-col z-40 relative">
-        {/* Button */}
-        <div
-          className="flex relative cursor-pointer"
-          onClick={(e) => {
-            e.stopPropagation();
-            setShow(!show);
-          }}
-        >
-          <p className="text-[#fff] rounded-[20px] text-[10px] bg-[red] p-1 w-[18px] h-[18px] justify-center items-center flex absolute top-0 right-0">
-            {dataNoti?.data?.notifications?.length}
-          </p>
-          <div className="flex justify-center items-center rounded-[20px] border-1 bg-[#F2F4F5] p-2 h-[40px]">
-            <SVGBell />
-          </div>
+      {/* Button */}
+      <div
+        className="flex relative cursor-pointer"
+        onClick={() => setShow(!show)}
+        ref={buttonRef}
+      >
+        <p className="text-[#fff] rounded-[20px] text-[10px] bg-[red] p-1 w-[18px] h-[18px] justify-center items-center flex absolute top-0 right-0">
+          {dataNoti?.data?.notifications?.length}
+        </p>
+        <div className="flex justify-center items-center rounded-[20px] border-1 bg-[#F2F4F5] p-2 h-[40px]">
+          <SVGBell />
         </div>
+      </div>
 
-        {/* Dropdown */}
-        {show && (
+      {/* Dropdown rendered through Portal */}
+      {show && (
+        <Portal>
           <div 
-            className="absolute top-[70px] right-4 w-[420px] bg-white border border-gray-200 rounded-md shadow-lg z-40"
-            onClick={(e) => e.stopPropagation()}
+            ref={dropdownRef}
+            className="fixed bg-white border border-gray-200 rounded-md shadow-lg"
+            style={{
+              top: `${position.top}px`,
+              right: `${position.right}px`,
+              width: '420px',
+              zIndex: 99999,
+            }}
           >
             <div className="p-[20px]">
               <p className="text-[18px] font-medium mb-4">Thông báo</p>
@@ -74,8 +107,8 @@ export default function Notifications() {
               </div>
             </div>
           </div>
-        )}
-      </div>
+        </Portal>
+      )}
     </>
   );
 }

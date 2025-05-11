@@ -260,11 +260,11 @@
     "en": "* The system automatically updates in seconds. If it has not been updated for more than 5 minutes, please contact ADMIN."
   },
   "perchasedServices.title": {
-    "vi": "Dịch vụ đã mua",
+    "vi": "Gói ăn đã mua",
     "en": " Perchased services"
   },
   "perchasedServices.searchServices": {
-    "vi": "Tìm kiếm dịch vụ đã mua theo ID, tên nền tảng hoặc tên dịch vụ",
+    "vi": "Tìm kiếm gói ăn đã mua theo ID, tên nền tảng hoặc tên dịch vụ",
     "en": "Search perchased services by ID, platform's name or service's name"
   },
   "perchasedServices.platform": {
@@ -276,7 +276,7 @@
     "en": "Classify"
   },
   "perchasedServices.servicesName": {
-    "vi": "Tên dịch vụ",
+    "vi": "Tên gói ăn",
     "en": "Services name"
   },
   "perchasedServices.Link": {
@@ -344,7 +344,7 @@
     "en": "Statistical"
   },
   "statistical.statusOfPerchasedServices": {
-    "vi": "Tình trạng dịch vụ đã mua",
+    "vi": "Tình trạng gói ăn đã mua",
     "en": "Status of perchased services"
   },
   "statistical.all": {
@@ -396,7 +396,7 @@
     "en": "Order"
   },
   "menu.bought": {
-    "vi": "Dịch vụ đã mua",
+    "vi": "Gói ăn đã mua",
     "en": "Bought"
   },
   "menu.bought.delete": {
@@ -472,7 +472,7 @@
     "en": "Find currency"
   },
   "bought.input-service-name": {
-    "vi": "Nhập Tên dịch vụ",
+    "vi": "Nhập Tên gói ăn",
     "en": "Enter the Service Name"
   },
   "bought.select-status": {
@@ -674,5 +674,9 @@
   "register": {
     "vi": "Đăng ký",
     "en": "Register"
+  },
+  "recharge.promotions": {
+    "vi": "Ưu đãi khi nạp tiền",
+    "en": "Recharge Promotions"
   }
 }

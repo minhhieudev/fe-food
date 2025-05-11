@@ -88,7 +88,7 @@ const Page = ({ params }: { params: { orderFoodId: string } }) => {
                 <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z"></path>
               </svg>
             </h1>
-            <p className="text-white/80  text-base">Khám phá các thành phần tự nhiên và dinh dưỡng được chọn lọc kỹ lưỡng cho bữa ăn lành mạnh của bạn</p>
+            <p className=" text-[12px]">Khám phá các thành phần tự nhiên và dinh dưỡng được chọn lọc kỹ lưỡng cho bữa ăn lành mạnh của bạn</p>
           </div>
         </div>
 
@@ -146,7 +146,7 @@ const Page = ({ params }: { params: { orderFoodId: string } }) => {
             <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
             </svg>
-            Thông tin dinh dưỡng
+            Thông tin dinh dưỡng cho mỗi bữa ăn
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -154,7 +154,7 @@ const Page = ({ params }: { params: { orderFoodId: string } }) => {
               <svg className="w-8 h-8 text-emerald-500 mb-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd"></path>
               </svg>
-              <p className="font-bold text-lg text-emerald-700">425 Kcal</p>
+              <p className="font-bold text-lg text-emerald-700">{serviceDetail?.subscriptionID?.nutritionInfo?.calories || "425"} Kcal</p>
               <p className="text-emerald-600 text-sm">Calories</p>
             </div>
 
@@ -162,7 +162,7 @@ const Page = ({ params }: { params: { orderFoodId: string } }) => {
               <svg className="w-8 h-8 text-blue-500 mb-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
               </svg>
-              <p className="font-bold text-lg text-blue-700">26g</p>
+              <p className="font-bold text-lg text-blue-700">{serviceDetail?.subscriptionID?.nutritionInfo?.protein || "26"}g</p>
               <p className="text-blue-600 text-sm">Protein</p>
             </div>
 
@@ -170,7 +170,7 @@ const Page = ({ params }: { params: { orderFoodId: string } }) => {
               <svg className="w-8 h-8 text-amber-500 mb-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clipRule="evenodd"></path>
               </svg>
-              <p className="font-bold text-lg text-amber-700">48g</p>
+              <p className="font-bold text-lg text-amber-700">{serviceDetail?.subscriptionID?.nutritionInfo?.carbs || "48"}g</p>
               <p className="text-amber-600 text-sm">Carbs</p>
             </div>
 
@@ -178,7 +178,7 @@ const Page = ({ params }: { params: { orderFoodId: string } }) => {
               <svg className="w-8 h-8 text-rose-500 mb-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd"></path>
               </svg>
-              <p className="font-bold text-lg text-rose-700">15g</p>
+              <p className="font-bold text-lg text-rose-700">{serviceDetail?.subscriptionID?.nutritionInfo?.fats || "15"}g</p>
               <p className="text-rose-600 text-sm">Fats</p>
             </div>
           </div>
@@ -193,8 +193,8 @@ const Page = ({ params }: { params: { orderFoodId: string } }) => {
             Thành phần bữa ăn
           </h2>
 
-          <div className="bg-emerald-50/50 rounded-xl p-4 mb-6">
-            <div className="flex overflow-x-auto custom-scrollbar-x pb-2">
+          <div className="bg-emerald-50/50 rounded-xl px-2 mb-6">
+            <div className="flex overflow-x-auto custom-scrollbar-x">
               <Tab list={ListGroup as any} onTabSelect={setSelectedTab} />
             </div>
           </div>
@@ -272,3 +272,4 @@ const Page = ({ params }: { params: { orderFoodId: string } }) => {
 };
 
 export default Page;
+

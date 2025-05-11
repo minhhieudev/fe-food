@@ -114,9 +114,9 @@ const MealCard: React.FC<Meal> = ({ _id, name, images, mainImage, description, p
           <div className="flex items-center justify-between">
             <div className="flex items-center text-gray-500 text-sm">
               <ClockIcon className="w-4 h-4 mr-1" />
-              <span>30 phút</span>
+              <span>{subscriptionID?.totalSub || 100} người đặt</span>
               <FireIcon className="w-4 h-4 ml-3 mr-1" />
-              <span>425 Kcal</span>
+              <span>{subscriptionID?.nutritionInfo?.calories || "425"} Kcal</span>
             </div>
             
             <button className={`p-2 rounded-full bg-emerald-500 text-white shadow-md transform transition-all duration-300 ${isHovered ? 'scale-100 opacity-100' : 'scale-90 opacity-0'}`}>

@@ -178,7 +178,7 @@ Tôi là **Healthy Assistant**, chuyên gia tư vấn dinh dưỡng AI của b�
   };
 
   return (
-    <div className="fixed right-4 z-50 bottom-36">
+    <div className="fixed right-4 z-50 bottom-24">
       {/* Chat Widget Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -187,7 +187,7 @@ Tôi là **Healthy Assistant**, chuyên gia tư vấn dinh dưỡng AI của b�
         } transition-all duration-300 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full p-4 shadow-lg flex items-center space-x-2 hover:shadow-xl`}
       >
         <SparklesIcon className="w-6 h-6" />
-        <span className="font-medium">Tư vấn dinh dưỡng</span>
+        <span className="font-medium">Bot</span>
       </button>
 
       {/* Chat Window */}
@@ -277,21 +277,14 @@ Tôi là **Healthy Assistant**, chuyên gia tư vấn dinh dưỡng AI của b�
                   <button
                     key={index}
                     onClick={() => {
-                      setInputMessage(suggestion.text); // Chỉ sử dụng text ngắn gọn
-                      
-                      // Cập nhật cách xử lý submit để sử dụng prompt nếu có
-                      setTimeout(() => {
-                        const event = new Event('submit') as any;
-                        const originalInput = inputMessage;
-                        
-                        // Gán tạm thời prompt chi tiết nếu có để gửi đến AI
-                        if (suggestion.prompt && suggestion.prompt !== suggestion.text) {
-                          const hiddenPrompt = suggestion.prompt;
-                          handleSubmitWithHiddenPrompt(event, suggestion.text, hiddenPrompt);
-                        } else {
-                          handleSubmit(event);
-                        }
-                      }, 100);
+                      const displayText = suggestion.text; // Lưu trữ văn bản hiển thị
+                      const hiddenPrompt = suggestion.prompt; // Lưu trữ prompt ẩn nếu có
+
+                      setInputMessage(displayText); // Cập nhật inputMessage
+
+                      // Gọi hàm handleSubmit với sự kiện giả lập
+                      const event = new Event('submit') as any;
+                      handleSubmitWithHiddenPrompt(event, displayText, hiddenPrompt); // Gọi hàm gửi tin nhắn
                     }}
                     className="p-3 text-sm text-emerald-700 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg hover:from-emerald-100 hover:to-teal-100 transition-all duration-200 text-left flex items-center gap-3 border border-emerald-100 hover:shadow-md group"
                   >

@@ -19,7 +19,10 @@ interface Meal {
   serviceTags?: [];
   subscriptionID?: {
     mealsPerDay: number,
-    totalDate: number
+    totalDate: number,
+    nutritionInfo: {
+      calories: number
+    }
   }
 }
 
@@ -33,7 +36,6 @@ const CardDetail: React.FC<Meal> = ({ id, name, description, price, type, image,
 
   return (
     <div className="flex flex-col h-full overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500">
-      <Link href={`/orderFood/${id}`} className="flex-grow group">
         <div className="relative overflow-hidden">
           <div className="h-56 w-full">
             {image && (
@@ -82,7 +84,7 @@ const CardDetail: React.FC<Meal> = ({ id, name, description, price, type, image,
             <div className="bg-amber-50 px-3 py-2 rounded-xl hover:bg-amber-100 transition-colors duration-300">
               <div className="flex items-center text-amber-700">
                 <FireIcon className="w-5 h-5 mr-2" />
-                <span>425 Kcal</span>
+                <span>{subscriptionID?.nutritionInfo?.calories || "425"} Kcal</span>
               </div>
             </div>
           </div>
@@ -113,7 +115,6 @@ const CardDetail: React.FC<Meal> = ({ id, name, description, price, type, image,
             </div>
           </div>
         )}
-      </Link>
     </div>
   );
 };

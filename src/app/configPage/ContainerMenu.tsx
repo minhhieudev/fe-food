@@ -7,19 +7,15 @@ import {
   ArrowRightStartOnRectangleIcon,
   Cog8ToothIcon,
   CreditCardIcon,
-  NewspaperIcon,
-  PhoneIcon,
   QueueListIcon,
-  ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
 import { Button } from "@nextui-org/react";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import Avatar from "../asset/images/avatar.jpg";
 import { SVGLogoNavBar } from "../asset/svgs";
 import { Language } from "../utils/language/language";
+
 interface Props {
   listMenu?: any;
   setNamePath?: any;
@@ -27,35 +23,20 @@ interface Props {
   setIsOpenClose?: any;
 }
 
-const ContainerMenu: React.FC<Props> = ({ listMenu = [], setNamePath, isOpenClose, setIsOpenClose  }) => {
+const ContainerMenu: React.FC<Props> = ({ listMenu = [], setNamePath, isOpenClose, setIsOpenClose }) => {
   const [current, setCurrent] = useState();
   const router = useRouter();
   const [items, setItems] = useState<any>();
-
   const lang = new Language(window);
   const pathName = usePathname();
 
   const ListMenu = [
-    // {
-    //   name: lang.gen("menu.statistical"),
-    //   icon: <NewspaperIcon className="w-5 h-5 font-bold" color="#979C9E" />,
-    //   iconPick: <NewspaperIcon className="w-5 h-5 font-bold" />,
-    //   path: "/statistic",
-    //   children: [],
-    // },
     {
       name: lang.gen("menu.orderFood"),
       icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
       iconPick: <Cog8ToothIcon className="w-5 h-5 font-bold" />,
       path: "/orderFood",
     },
-    // {
-    //   name: lang.gen("menu.order"),
-    //   icon: <ShoppingCartIcon className="w-5 h-5 font-bold" color="#979C9E" />,
-    //   iconPick: <ShoppingCartIcon className="w-5 h-5 font-bold" />,
-    //   path: "/order",
-    //   children: [],
-    // },
     {
       name: lang.gen("menu.bought"),
       icon: <QueueListIcon className="w-5 h-5 font-bold" color="#979C9E" />,
@@ -69,32 +50,14 @@ const ContainerMenu: React.FC<Props> = ({ listMenu = [], setNamePath, isOpenClos
       iconPick: <CreditCardIcon className="w-5 h-5 font-bold" />,
       path: "/payment",
     },
-    // {
-    //   name: lang.gen("menu.support"),
-    //   icon: <PhoneIcon className="w-5 h-5 font-bold" color="#979C9E" />,
-    //   iconPick: <PhoneIcon className="w-5 h-5 font-bold" />,
-    //   path: "/support",
-    // },
-    // {
-    //   name: lang.gen("menu.config"),
-    //   icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
-    //   iconPick: <Cog8ToothIcon className="w-5 h-5 font-bold" />,
-    //   path: "/config",
-    // },
-    // {
-    //   name: lang.gen("menu.api"),
-    //   icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
-    //   iconPick: <Cog8ToothIcon className="w-5 h-5 font-bold" />,
-    //   path: "/api",
-    // },
     {
       name: 'Thông tin',
       icon: <Cog8ToothIcon className="w-5 h-5 font-bold" color="#979C9E" />,
       iconPick: <Cog8ToothIcon className="w-5 h-5 font-bold" />,
       path: "/profile",
     },
-    
   ];
+
   useEffect(() => {
     ListMenu.map((item: any, index: any) => {
       if (item.path === pathName) {
@@ -141,105 +104,124 @@ const ContainerMenu: React.FC<Props> = ({ listMenu = [], setNamePath, isOpenClos
 
   return (
     <>
-      <div className="lg:flex hidden">
-        {ListMenu.map((item, index) => {
-          return (
-            <div key={index}>
-              <div className="px-2 pt-2 flex justify-center items-center p-1">
-                <Button
-                  className={
-                    current == index
-                      ? "w-full text-[#FF8900] bg-white underline mb-[4px] outline-none rounded-[10px] p-1"
-                      : "w-full  bg-white mb-[4px] outline-none hover:rounded-[10px] p-1"
+      {/* Desktop Menu - Horizontal Layout */}
+      <div className="lg:flex hidden items-center space-x-2">
+        {ListMenu.map((item, index) => (
+          <div key={index} className="relative">
+            <Button
+              className={`
+                transition-all duration-200 ease-in-out
+                ${current === index 
+                  ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg" 
+                  : "bg-white hover:bg-gray-50 text-gray-600"
+                }
+                rounded-xl px-4 py-2
+                transform hover:scale-[1.02] active:scale-[0.98]
+              `}
+              onClick={() => handleRouter(item, index)}
+            >
+              <div className="flex items-center gap-2">
+                <div className={`
+                  p-1.5 rounded-lg
+                  ${current === index 
+                    ? "bg-white/20" 
+                    : "bg-gray-100"
                   }
-                  onClick={() => handleRouter(item, index)}
-                >
-                  <div className="w-full flex flex-1 items-center h-10 pl-1">
-                    {/* {current == index ? item?.iconPick : item?.icon} */}
-                    <p
-                      className="pl-2 text-base font-bold"
-                      style={{
-                        color: current == index ? "" : "gray",
-                        fontSize: 16,
-                        lineHeight: 24,
-                      }}
-                    >
-                      {item?.name}
-                    </p>
-                  </div>
-                </Button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className="lg:hidden p-[20px] gap-2 flex flex-col h-[95vh]">
-        <SVGLogoNavBar className="w-[fit-content]" />
-        {/* menu */}
-        <div className="h-full">
-          {ListMenu.map((item, index) => {
-            return (
-              <div key={index}>
-                <div className="pt-2 flex justify-center items-center">
-                  <Button
-                    className={
-                      current == index
-                        ? "w-full bg-[#E3E5E5] outline-none p-1 px-2 py-6"
-                        : "w-full outline-none p-1 bg-[#fff] px-2 py-6"
-                    }
-                    onClick={() => handleRouterMini(item, index)}
-                  >
-                    <div
-                      className={
-                        current == index
-                          ? "w-full flex flex-1 items-center h-10 pl-2 bg-[#E3E5E5] rounded-[14px]"
-                          : "w-full flex flex-1 items-center h-10 pl-2  rounded-[14px]"
-                      }
-                    >
-                      {current == index ? item?.iconPick : item?.icon}
-                      <p
-                        className="pl-2 text-base font-bold"
-                        style={{
-                          color: current == index ? "" : "gray",
-                          fontSize: 16,
-                          lineHeight: 24,
-                        }}
-                      >
-                        {item?.name}
-                      </p>
-                    </div>
-                  </Button>
+                `}>
+                  {current === index ? item?.iconPick : item?.icon}
                 </div>
+
+                <p className={`
+                  font-semibold text-base whitespace-nowrap
+                  ${current === index 
+                    ? "text-white" 
+                    : "text-gray-700"
+                  }
+                `}>
+                  {item?.name}
+                </p>
               </div>
-            );
-          })}
+            </Button>
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile Menu */}
+      <div className="lg:hidden p-4 gap-2 flex flex-col h-[95vh] bg-white">
+        <SVGLogoNavBar className="w-[fit-content] mb-4" />
+        
+        <div className="flex-1 space-y-2">
+          {ListMenu.map((item, index) => (
+            <div key={index} className="relative">
+              <Button
+                className={`
+                  w-full transition-all duration-200
+                  ${current === index
+                    ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white"
+                    : "bg-gray-50 hover:bg-gray-100 text-gray-700"
+                  }
+                  rounded-xl p-4
+                `}
+                onClick={() => handleRouterMini(item, index)}
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`
+                    p-2 rounded-lg
+                    ${current === index 
+                      ? "bg-white/20" 
+                      : "bg-white"
+                    }
+                  `}>
+                    {current === index ? item?.iconPick : item?.icon}
+                  </div>
+
+                  <p className={`
+                    font-semibold text-base
+                    ${current === index 
+                      ? "text-white" 
+                      : "text-gray-700"
+                    }
+                  `}>
+                    {item?.name}
+                  </p>
+                </div>
+              </Button>
+            </div>
+          ))}
         </div>
-        {/* User email */}
-        <div className="flex items-center justify-between gap-1 h-[fit-content] px-6 py-[14px] rounded-lg bg-[black] mt-3">
-          {items?.avatar ? (
-            <img
-              src={items?.avatar}
-              alt="avatar"
-              width={32}
-              height={32}
-              className=" rounded-2xl"
-            />
-          ) : (
-            <img
-              src={"/logo.png"}
-              alt="avatar"
-              width={32}
-              height={32}
-              className=" rounded-2xl"
-            />
-          )}
-          <p className="text-[#fff] ml-[5px]">{items?.email}</p>
-          <ArrowRightStartOnRectangleIcon
-            color="#fff"
-            width={36}
-            className=" cursor-pointer"
-            onClick={handleLogout}
-          />
+
+        {/* User Profile Section */}
+        <div className="mt-auto">
+          <div className="flex items-center justify-between gap-3 p-4 rounded-xl bg-gradient-to-r from-gray-900 to-gray-800">
+            {items?.avatar ? (
+              <img
+                src={items?.avatar}
+                alt="avatar"
+                width={40}
+                height={40}
+                className="rounded-xl object-cover"
+              />
+            ) : (
+              <img
+                src="/logo.png"
+                alt="avatar"
+                width={40}
+                height={40}
+                className="rounded-xl object-cover"
+              />
+            )}
+            <p className="text-white flex-1 ml-2 font-medium truncate">
+              {items?.email}
+            </p>
+            <button
+              onClick={handleLogout}
+              className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+            >
+              <ArrowRightStartOnRectangleIcon
+                className="w-6 h-6 text-white"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </>

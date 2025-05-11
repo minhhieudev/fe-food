@@ -1,10 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body {
+/* body {
   margin: 0px;
   padding: 0px;
-}
+  background: linear-gradient(to bottom right, #e6f8f5, #edf7ef);
+} */
 @layer utilities {
   .bgCustom1 {
     background-image: url("../app/asset/images/bgTopics.png");
@@ -413,4 +414,16 @@ body {
 .api-input {
   border: 1px solid #e3e5e5;
   border-radius: 4px;
+}
+
+/* Datepicker popover fix */
+.react-tailwindcss-datepicker-popover {
+  z-index: 999 !important; 
+  position: absolute !important;
+}
+
+/* Dropdown menu fix */
+.dropdown-menu {
+  z-index: 9999 !important;
+  position: absolute !important;
 }

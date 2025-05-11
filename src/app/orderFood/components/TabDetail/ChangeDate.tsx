@@ -3,6 +3,8 @@ import Datepicker from "react-tailwindcss-datepicker";
 import { MealActions } from "@/modules/meal/slice";
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import { CalendarDaysIcon, ClockIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
 
 interface PageProps {
     params: {
@@ -16,30 +18,7 @@ interface PageProps {
 const ChangeDate: React.FC<PageProps> = ({ params, estimatedTime, estimatedDate }) => {
     const [selectedDate, setSelectedDate] = useState<any>(null);
     const [selectedTime, setSelectedTime] = useState('');
-
     const dispatch = useDispatch();
-
-    const updateDeliveryTime = () => {
-        dispatch(
-            MealActions.updateDeliveryTime({
-                body: {
-                    estimatedDate: selectedDate.startDate,
-                    estimatedTime: selectedTime,
-                    mealID: params.mealOrderId
-                },
-                onSuccess: (rs: any) => {
-                    toast.success('Cập nhật ngày giao thành công');
-                },
-                onFail: (rs: any) => {
-                    toast.error(rs);
-                }
-            })
-        );
-    }
-
-    const handleValueChange = (newValue: any) => {
-        setSelectedDate(newValue);
-    };
 
     const deliveryTimes = [
         "7:00 - 8:00",
@@ -59,6 +38,9 @@ const ChangeDate: React.FC<PageProps> = ({ params, estimatedTime, estimatedDate 
         "21:00 - 22:00",
     ];
 
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
     useEffect(() => {
         const index = deliveryTimes.findIndex(time => time === estimatedTime);
         if (index !== -1) {
@@ -75,44 +57,106 @@ const ChangeDate: React.FC<PageProps> = ({ params, estimatedTime, estimatedDate 
         }
     }, [estimatedTime, estimatedDate]);
 
+    const updateDeliveryTime = () => {
+        if (!selectedDate || !selectedTime) {
+            toast.error('Vui lòng chọn đầy đủ ngày và giờ giao hàng');
+            return;
+        }
+
+        dispatch(
+            MealActions.updateDeliveryTime({
+                body: {
+                    estimatedDate: selectedDate.startDate,
+                    estimatedTime: selectedTime,
+                    mealID: params.mealOrderId
+                },
+                onSuccess: (rs: any) => {
+                    toast.success('Cập nhật thời gian giao hàng thành công!');
+                },
+                onFail: (rs: any) => {
+                    toast.error(rs);
+                }
+            })
+        );
+    };
+
+    const handleValueChange = (newValue: any) => {
+        setSelectedDate(newValue);
+    };
 
     return (
-        <div className="container p-4 max-w-4xl">
-            <div className="flex flex-col space-y-4">
-                <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
-                    <div className="flex-1">
-                        <label htmlFor="delivery-date" className="block text-sm font-semibold text-gray-700 mb-2">Ngày giao</label>
-                        <div className="border-2 rounded-md">
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl mx-auto"
+        >
+            <h2 className="text-xl font-bold text-gray-800 mb-4 text-center">
+                Thay đổi thời gian giao hàng
+            </h2>
+
+            <div className="space-y-4">
+                {/* Date Selection */}
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    <div className="flex items-center mb-3">
+                        <CalendarDaysIcon className="w-5 h-5 text-emerald-600 mr-2" />
+                        <label className="text-base font-semibold text-gray-700">Chọn ngày giao hàng</label>
+                    </div>
+                    <div className="relative">
+                        <div className="border border-gray-200 rounded-lg overflow-visible transition-colors focus-within:border-emerald-500" style={{ zIndex: 999 }}>
                             <Datepicker
                                 value={selectedDate}
                                 onChange={handleValueChange}
                                 useRange={false}
                                 asSingle={true}
+                                minDate={tomorrow}
+                                inputClassName="w-full px-3 py-2 text-gray-700 focus:outline-none"
+                                toggleClassName="absolute right-2 h-full px-2 focus:outline-none"
+                                containerClassName="relative"
+                                popoverDirection="down"
                             />
                         </div>
                     </div>
-                    <div className="flex-1">
-                        <label htmlFor="delivery-time" className="block text-sm font-semibold text-gray-700 mb-2">Khung giờ giao</label>
-                        <select
-                            id="delivery-time"
-                            className="mt-1 border-2 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                            value={selectedTime}
-                            onChange={(e) => setSelectedTime(e.target.value)}
-                        >
-                            {deliveryTimes.map((time, index) => (
-                                <option key={index} value={time}>{time}</option>
-                            ))}
-                        </select>
-                    </div>
                 </div>
-                <button
+
+                {/* Time Selection */}
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    <div className="flex items-center mb-3">
+                        <ClockIcon className="w-5 h-5 text-emerald-600 mr-2" />
+                        <label className="text-base font-semibold text-gray-700">Chọn khung giờ giao hàng</label>
+                    </div>
+                    <select
+                        className="w-full px-3 py-2 text-gray-700 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+                        value={selectedTime}
+                        onChange={(e) => setSelectedTime(e.target.value)}
+                    >
+                        {deliveryTimes.map((time, index) => (
+                            <option key={index} value={time}>{time}</option>
+                        ))}
+                    </select>
+                </div>
+
+                {/* Current Selection Display */}
+                {(selectedDate || selectedTime) && (
+                    <div className="bg-emerald-50 p-3 rounded-lg border border-emerald-100">
+                        <p className="text-sm text-emerald-800 font-medium">
+                            Thời gian giao hàng mới: {selectedDate?.startDate && new Date(selectedDate.startDate).toLocaleDateString('vi-VN')} - {selectedTime}
+                        </p>
+                    </div>
+                )}
+
+                {/* Submit Button */}
+                <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     onClick={updateDeliveryTime}
-                    className="bg-red-800 text-white py-2 px-4 rounded-md self-start mt-3"
+                    className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-2.5 px-6 rounded-lg font-medium flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-200"
                 >
-                    Xác nhận
-                </button>
+                    <CheckCircleIcon className="w-5 h-5" />
+                    <span>Xác nhận thay đổi</span>
+                </motion.button>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

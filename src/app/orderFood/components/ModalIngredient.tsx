@@ -246,7 +246,7 @@ const ModalIngredient: React.FC<ModalIngredientProps> = ({ isVisible, onClose, t
                 >
                     <motion.div
                         ref={modalRef}
-                        className="relative w-full max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+                        className="relative w-full max-w-7xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
                         variants={modalVariants}
                     >
                         {/* Header */}
@@ -266,12 +266,12 @@ const ModalIngredient: React.FC<ModalIngredientProps> = ({ isVisible, onClose, t
 
                         {/* Content area with scroll */}
                         <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                                 {/* Left column - Ingredients & Goals */}
-                                <div className="lg:col-span-2 space-y-6">
+                                <div className="lg:col-span-3 space-y-3">
                                     {/* Tabs navigation */}
                                     <div className="bg-emerald-50 rounded-xl py-2 px-2">
-                                        <h4 className="text-lg font-semibold text-emerald-800 mb-3 flex items-center">
+                                        <h4 className="text-lg font-semibold text-emerald-800 flex items-center">
                                             <svg className="w-5 h-5 mr-2 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
                                             </svg>
@@ -403,12 +403,12 @@ const ModalIngredient: React.FC<ModalIngredientProps> = ({ isVisible, onClose, t
                                             </div>
                                         )}
 
-                                        <div className="mt-4">
+                                        <div className="mt-4 relative">
                                             <label htmlFor="delivery-date" className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
                                                 <CalendarDaysIcon className="w-4 h-4 mr-1 text-emerald-600" />
                                                 Ngày bắt đầu giao
                                             </label>
-                                            <div className="border border-gray-200 rounded-lg overflow-hidden transition-colors focus-within:border-emerald-500">
+                                            <div className="border border-gray-200 rounded-lg overflow-visible transition-colors focus-within:border-emerald-500" style={{ zIndex: 999 }}>
                                                 <Datepicker
                                                     value={selectedDate}
                                                     onChange={handleValueChange}
@@ -416,6 +416,9 @@ const ModalIngredient: React.FC<ModalIngredientProps> = ({ isVisible, onClose, t
                                                     asSingle={true}
                                                     minDate={tomorrow}
                                                     inputClassName="w-full px-4 py-2.5 text-gray-700 focus:outline-none"
+                                                    toggleClassName="absolute right-2 h-full px-2 focus:outline-none"
+                                                    containerClassName="relative"
+                                                    popoverDirection="down"
                                                 />
                                             </div>
                                         </div>

@@ -253,7 +253,7 @@ const SelectServiceName = [
   {
     id: 0,
     code: "ServiceName",
-    name: "Nhập Tên dịch vụ",
+    name: "Nhập Tên gói ăn",
   },
 ];
 

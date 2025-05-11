@@ -6,6 +6,7 @@ import { Config } from '@/core/constants/configs';
 import { useDispatch } from "react-redux";
 import { toast } from 'react-toastify';
 import { MealActions } from "@/modules/meal/slice";
+import { createPortal } from 'react-dom';
 
 interface OrderProps {
   order: {
@@ -76,6 +77,7 @@ const Order: React.FC<OrderProps> = ({ order, index, openIndex, setOpenIndex }) 
   const pathname = usePathname();
   const [orderStatus, setOrderStatus] = useState(order.status);
   const dispatch = useDispatch();
+  const [domReady, setDomReady] = useState(false);
 
   const detail = () => {
     router.push(`${pathname}/${order._id}`);
@@ -88,20 +90,45 @@ const Order: React.FC<OrderProps> = ({ order, index, openIndex, setOpenIndex }) 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setOpenIndex(null);
         setIsOpen(false);
+        setOpenIndex(null);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [setOpenIndex]);
+  }, [isOpen, setOpenIndex]);
 
-  const toggleDropdown = () => {
-    setOpenIndex(index === openIndex ? null : index);
-    setIsOpen(!isOpen);
+  useEffect(() => {
+    // Thêm code để đảm bảo dropdown không bị che khuất
+    if (isOpen && dropdownRef.current) {
+      const dropdown = dropdownRef.current.querySelector('.dropdown-menu');
+      if (dropdown) {
+        document.body.appendChild(dropdown);
+        
+        return () => {
+          if (dropdown.parentNode === document.body) {
+            document.body.removeChild(dropdown);
+          }
+        };
+      }
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    setDomReady(true);
+  }, []);
+
+  const toggleDropdown = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const newIsOpen = !isOpen;
+    setIsOpen(newIsOpen);
+    setOpenIndex(newIsOpen ? index : null);
   };
   
   const statusInfo = getStatusInVietnamese(orderStatus);
@@ -122,6 +149,13 @@ const Order: React.FC<OrderProps> = ({ order, index, openIndex, setOpenIndex }) 
   };
 
   const formattedDate = new Date(order.estimatedDate).toLocaleDateString('vi-VN');
+
+  // Thêm stopPropagation để ngăn event bubbling
+  const handleDropdownItemClick = (callback: () => void) => (e: React.MouseEvent) => {
+    e.stopPropagation(); // Ngăn sự kiện lan ra bên ngoài
+    callback();
+    setIsOpen(false); // Đóng dropdown sau khi xử lý
+  };
 
   return (
     <div className={`bg-white rounded-xl overflow-hidden border border-l-4 ${statusInfo.borderColor} shadow-sm hover:shadow-md transition-all duration-300 group`}>
@@ -205,8 +239,16 @@ const Order: React.FC<OrderProps> = ({ order, index, openIndex, setOpenIndex }) 
               <EllipsisVerticalIcon className="w-5 h-5" />
             </button>
             
-            {isOpen && (
-              <div className="absolute right-0 mt-2 w-56 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 divide-y divide-gray-100">
+            {isOpen && domReady && createPortal(
+              <div 
+                className="dropdown-menu w-56 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100"
+                style={{
+                  position: 'fixed',
+                  zIndex: 9999,
+                  top: dropdownRef.current ? dropdownRef.current.getBoundingClientRect().bottom + window.scrollY : 0,
+                  left: dropdownRef.current ? dropdownRef.current.getBoundingClientRect().right - 224 + window.scrollX : 0,
+                }}
+              >
                 <div className="py-1">
                   {order.status === 'done' && (
                     <button 
@@ -219,7 +261,8 @@ const Order: React.FC<OrderProps> = ({ order, index, openIndex, setOpenIndex }) 
                   
                   <button 
                     className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={detail}
+                    onClick={handleDropdownItemClick(detail)}
+                    onMouseDown={(e) => e.stopPropagation()}
                   >
                     <EyeIcon className="w-4 h-4 mr-3 text-emerald-500" />
                     Xem chi tiết
@@ -227,7 +270,8 @@ const Order: React.FC<OrderProps> = ({ order, index, openIndex, setOpenIndex }) 
                   
                   <button 
                     className="flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                    onClick={changeDate}
+                    onClick={handleDropdownItemClick(changeDate)}
+                    onMouseDown={(e) => e.stopPropagation()}
                   >
                     <CalendarDaysIcon className="w-4 h-4 mr-3 text-blue-500" />
                     Đổi ngày giao
@@ -238,14 +282,16 @@ const Order: React.FC<OrderProps> = ({ order, index, openIndex, setOpenIndex }) 
                   <div className="py-1">
                     <button 
                       className="flex w-full items-center px-4 py-2 text-sm text-red-600 hover:bg-red-50" 
-                      onClick={cancelMeal}
+                      onClick={handleDropdownItemClick(cancelMeal)}
+                      onMouseDown={(e) => e.stopPropagation()}
                     >
                       <TrashIcon className="w-4 h-4 mr-3" />
                       Hủy bữa ăn
                     </button>
                   </div>
                 )}
-              </div>
+              </div>,
+              document.body
             )}
           </div>
         </div>

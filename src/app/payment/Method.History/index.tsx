@@ -26,7 +26,7 @@ export default function MethodHistory() {
   const [isUseBank, setIsUseBank] = useState<string>("");
   const [isUsePerfectMoney, setIsUsePerfectMoney] = useState<string>("");
   const dispatch = useAppDispatch();
-  const [currentMethod, setCurrentMethod] = useState<Number>(0);
+  const [currentMethod, setCurrentMethod] = useState<Number>(2);
   const dataSupport = useSelector(SettingSelectors.setting);
   useEffect(() => {
     dispatch(SettingActions.getSetting({}));
@@ -43,19 +43,9 @@ export default function MethodHistory() {
   ];
   const dataMethod = [
     {
-      id: 0,
-      title: lang.gen("recharge.depositViabankcard"),
-      icon: <Image src={Images.atm} alt="atm" width={48} />,
-    },
-    {
       id: 1,
       title: lang.gen("recharge.depositViaPaypal"),
       icon: <SVGPaypal />,
-    },
-    {
-      id: 2,
-      title: "Liên hệ trực tiếp",
-      icon: <PhoneIcon color="#23C16B" width={50} />,
     },
     {
       id: 3,
@@ -94,64 +84,10 @@ export default function MethodHistory() {
       }else if (e.key === CHECK_VALUE.IS_USE_PERFECT_MONEY) {
         setIsUsePerfectMoney(e.value);
       }
-      if((e.key === CHECK_VALUE.IS_USE_PAYPAL || e.key === CHECK_VALUE.IS_USE_PERFECT_MONEY ||
-          e.key === CHECK_VALUE.IS_USE_BANK) && e.value === "true")
-      {
-        array.push({
-          "key":e.key,
-          "index": index
-        })
-      }
     });
-    /*
-      Ngày viết: 29-05-2024
-      Chức năng: sắp xếp thức tự hiện thỉ trên màn hình UI
-        VD: - màn hình UI hiện thị theo thứ tự:  nạp tièn qua ngân hàng, nạp tiền qua paypal,nạp tiên qua perfect money 
-            - api trả về theo thứ tự sau: nạp tiên qua perfect money,nạp tièn qua ngân hàng, nạp tiền qua paypal
-      ==> cần sắp xếp lại để hiển thị và vết hàm setTimeout để đợi cho lấy hết giá trị từ api xong mới sắp xếp, khi chạy xong clear hàm setTimeout
-    */
-    const timeOutId = setTimeout(
-      () => {
-            if( array && array.length > 0 && currentMethod !== 2){
-              let arrayDataCheck : Array<object> = [] 
-              array.map((event:any)=>{
-                if(event.key === CHECK_VALUE.IS_USE_BANK){
-                  arrayDataCheck.push({
-                    "key":event.key,
-                    "index": Number(event.index) - 4
-                  })
-                }else{
-                  arrayDataCheck.push({
-                    "key":event.key,
-                    "index":event.index
-                  })
-                }
-              })
-              arrayDataCheck.sort(function(a:any, b: any){return a.index - b.index})
-              arrayDataCheck.reverse()
-              arrayDataCheck.map((e:any) =>{
-                switch(e.key) {
-                  case CHECK_VALUE.IS_USE_PERFECT_MONEY:
-                    setCurrentMethod(2)
-                    break;
-                  case CHECK_VALUE.IS_USE_PAYPAL:
-                    setCurrentMethod(1)
-                    break;
-                  case CHECK_VALUE.IS_USE_BANK:
-                    setCurrentMethod(0)
-                    break;
-                  default:
-                    break;
-                  }
-              })
-            }else if (array && array.length <= 0){
-              setCurrentMethod(2)
-            }
-        },
-        500
-    );
-    return () => clearTimeout(timeOutId);
-    /*====================== END ============================*/
+    
+    setCurrentMethod(2);
+    
   }, [dataSupport]);
 
   return (
@@ -163,7 +99,7 @@ export default function MethodHistory() {
               key={index}
               className={
                 current == index
-                  ? "cursor-pointer border-b-1 border-[#FF8900] text-[#FF8900]"
+                  ? "cursor-pointer border-b-1 border-[#23C16B] text-[#23C16B]"
                   : "cursor-pointer "
               }
               onClick={() => {
@@ -178,8 +114,8 @@ export default function MethodHistory() {
       {current == 0 && (
         <div className="flex gap-[20px] flex-col">
           <div className="flex gap-[20px] max-lg:hidden">
-            {dataMethod?.map((item: any, index: number) => {
-              if (item.id === 0 && isUseBank === "true") {
+            {currentMethod !== 2 && dataMethod?.map((item: any, index: number) => {
+              if (item.id === 1 && isUsePaypal === "true") {
                 return (
                   <OneMethod
                     key={index}
@@ -190,29 +126,7 @@ export default function MethodHistory() {
                     flag={1}
                   />
                 );
-              }else if (item.id === 1 && isUsePaypal === "true") {
-                return (
-                  <OneMethod
-                    key={index}
-                    index={index}
-                    currentMethod={currentMethod}
-                    setCurrentMethod={setCurrentMethod}
-                    item={item}
-                    flag={1}
-                  />
-                );
-              }else if (item.id === 2){
-                return (
-                  <OneMethod
-                    key={index}
-                    index={index}
-                    currentMethod={currentMethod}
-                    setCurrentMethod={setCurrentMethod}
-                    item={item}
-                    flag={1}
-                  />
-                );
-              }else if (item.id === 3 && isUsePerfectMoney === "true") {
+              } else if (item.id === 3 && isUsePerfectMoney === "true") {
                 return (
                   <OneMethod
                     key={index}
@@ -224,12 +138,13 @@ export default function MethodHistory() {
                   />
                 );
               }
+              return null;
             })}
           </div>
           {/* ---------------------------------- RESPONSIVE ---------------------------------- */}
           <div className="hidden max-lg:flex gap-[20px] flex-col">
-            {dataMethod?.map((item: any, index: number) => {
-              if (item.id === 0 && isUseBank === "true") {
+            {currentMethod !== 2 && dataMethod?.map((item: any, index: number) => {
+              if (item.id === 1 && isUsePaypal === "true") {
                 return (
                   <OneMethod
                     key={index}
@@ -240,29 +155,7 @@ export default function MethodHistory() {
                     flag={1}
                   />
                 );
-              }else if (item.id === 1 && isUsePaypal === "true") {
-                return (
-                  <OneMethod
-                    key={index}
-                    index={index}
-                    currentMethod={currentMethod}
-                    setCurrentMethod={setCurrentMethod}
-                    item={item}
-                    flag={1}
-                  />
-                );
-              }else if (item.id === 3 && isUsePerfectMoney === "true") {
-                return (
-                  <OneMethod
-                    key={index}
-                    index={index}
-                    currentMethod={currentMethod}
-                    setCurrentMethod={setCurrentMethod}
-                    item={item}
-                    flag={1}
-                  />
-                );
-              }else if (item.id === 2){
+              } else if (item.id === 3 && isUsePerfectMoney === "true") {
                 return (
                   <OneMethod
                     key={index}
@@ -274,18 +167,14 @@ export default function MethodHistory() {
                   />
                 );
               }
+              return null;
             })}
           </div>
           {/*==================== END ==============================*/}
           <div>
             {/* {currentMethod == 1 && <FormPayment />} */}
             {currentMethod == 2 && <FormPaymentBank />}
-            {currentMethod == 2 && (
-              <div className=" text-[18px] font-bold flex flex-col border-1 border-gray-300 rounded-[10px] p-[20px] gap-[20px]">
-                <div>Liên hệ trực tiếp</div>
-                <SupportInformation flag={1} />
-              </div>
-            )}
+           
             {/* {currentMethod == 3 && <FormPerfectMoney />} */}
           </div>
         </div>
@@ -306,10 +195,10 @@ const OneMethod = ({
       className={
         flag == 1
           ? currentMethod == index
-            ? "flex border-1 border-[#FF8900] p-[20px] w-full rounded-[12px] justify-between items-center"
+            ? "flex border-1 border-[#23C16B] p-[20px] w-full rounded-[12px] justify-between items-center"
             : "flex border-1 border-gray-200 p-[20px] w-full rounded-[12px] justify-between items-center"
           : currentMethod == index
-          ? "flex border-1 border-[#FF8900] p-[20px] w-full rounded-[12px] justify-between items-center"
+          ? "flex border-1 border-[#23C16B] p-[20px] w-full rounded-[12px] justify-between items-center"
           : "flex border-1 border-gray-200 p-[20px] w-full rounded-[12px] justify-between items-center"
       }
       onClick={() => {

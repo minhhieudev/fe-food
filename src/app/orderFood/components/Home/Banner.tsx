@@ -54,7 +54,7 @@ const Banner = ({ searchTerm, onSearchChange }: BannerProps) => {
       {/* Content - đã điều chỉnh lại text */}
       <div className="absolute inset-0 flex flex-col justify-center px-10 lg:px-20 z-10">
         <div className="animate-fade-in-up">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 max-w-2xl">
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-4 max-w-2xl">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/90">
               Khám phá ẩm thực lành mạnh
             </span>
